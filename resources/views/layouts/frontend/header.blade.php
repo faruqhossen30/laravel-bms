@@ -8,7 +8,8 @@
       </div>
       <div class="dateshow">
          <span class=""></span>
-         <span> {{ date('d-M-Y') }} <br> {{ date('h:i:sa') }}</span>
+         <span> {{ date('d-M-Y') }} <br>
+         <span id="clock"></span>
       </div>
       <div class="collapse navbar-collapse" id="navbar">
          @guest
