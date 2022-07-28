@@ -17,7 +17,7 @@ class MatchController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('permission:Match');
+        // $this->middleware('permission:Match');
     }
 
     protected function matchIsHide($id)
@@ -70,10 +70,13 @@ class MatchController extends Controller
 
     // All matches
     public function index(){
+
+
+        // return rand();
         $matchs = Match::orderBy('date','ASC')->orderBy('time','ASC')->where('status','live')->get();
         foreach ($matchs as $key => $match) {
         if ($this->matchIsHide($match->id) == false) {
-        $matchDate = $match->date;  
+        $matchDate = $match->date;
         $date = date("d M Y", strtotime($matchDate));
         $matchTime = $match->time;
             $time  = date("g:i A", strtotime($matchTime));
@@ -310,7 +313,7 @@ class MatchController extends Controller
                                             }
 
                                             echo '<a class="btn btn-sm btn-dark" href="javascript:void(0)" id="option-close" data-id="' . $option->id . '">Close</a>
-    
+
                             </td>
                             <td>
                             <button class="btn btn-primary" id="option-limit" data-id="' . $option->id . '"> Limit (' . $option->bet_limit . ')  </button></td>
@@ -338,7 +341,7 @@ class MatchController extends Controller
                 }
             }
         }
-        
+
         }
         }
     }
@@ -350,7 +353,7 @@ class MatchController extends Controller
         $matchs = Match::orderBy('date','ASC')->orderBy('time','ASC')->where('status','upcoming')->get();
         foreach ($matchs as $key => $match) {
         if ($this->matchIsHide($match->id) == false) {
-        $matchDate = $match->date;  
+        $matchDate = $match->date;
         $date = date("d M Y", strtotime($matchDate));
         $matchTime = $match->time;
             $time  = date("g:i A", strtotime($matchTime));
@@ -588,7 +591,7 @@ class MatchController extends Controller
                                                 }
 
                                                 echo '<a class="btn btn-sm btn-dark" href="javascript:void(0)" id="option-close" data-id="' . $option->id . '">Close</a>
-        
+
                                 </td>
                                 <td>
                                 <button class="btn btn-primary" id="option-limit" data-id="' . $option->id . '"> Limit (' . $option->bet_limit . ')  </button></td>
@@ -615,7 +618,7 @@ class MatchController extends Controller
                         }
                     }
                 }
-            } 
+            }
 
         }
     }
@@ -663,7 +666,7 @@ class MatchController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {  
+    {
         $input = $request->all();
         $match = Match::find($id);
         $match->fill($input)->save();
@@ -673,7 +676,7 @@ class MatchController extends Controller
     // Close Match
 
     public function closeMatch(Request $request, $id)
-    {  
+    {
         $match = Match::find($id);
         $match->update(['status' => 'close']);
         return response()->json($match);
@@ -688,7 +691,7 @@ class MatchController extends Controller
         if (!empty($matchs) && $matchs->count()) {
             foreach ($matchs as $key => $match) {
                 if ($this->matchIsHide($match->id) == true) {
-                $matchDate = $match->date;  
+                $matchDate = $match->date;
                 $date = date("d M Y", strtotime($matchDate));
                 $matchTime = $match->time;
                 $time  = date("g:i A", strtotime($matchTime));
@@ -715,7 +718,7 @@ class MatchController extends Controller
             if (!empty($matchs) && $matchs->count()) {
             foreach ($matchs as $key => $match) {
                 if ($this->matchIsHide($match->id) == true) {
-                $matchDate = $match->date;  
+                $matchDate = $match->date;
                 $date = date("d M Y", strtotime($matchDate));
                 $matchTime = $match->time;
                 $time  = date("g:i A", strtotime($matchTime));
@@ -767,7 +770,7 @@ class MatchController extends Controller
     // Match Area Hide
 
     public function areaHide(Request $request, $id)
-    {  
+    {
         $match = Match::find($id);
         $match->update(['is_area_hide' => 1]);
         return response()->json($match);
@@ -776,7 +779,7 @@ class MatchController extends Controller
     // Match Area Show
 
     public function areaShow(Request $request, $id)
-    {  
+    {
         $match = Match::find($id);
         $match->update(['is_area_hide' => 0]);
         return response()->json($match);
@@ -785,44 +788,44 @@ class MatchController extends Controller
       // Match Hide
 
       public function matchHide(Request $request, $id)
-      {  
+      {
           $match = Match::find($id);
           $match->update(['is_hide' => 1]);
           return response()->json($match);
-      }  
+      }
 
      // Match Show
 
      public function matchShow(Request $request, $id)
-     {  
+     {
          $match = Match::find($id);
          $match->update(['is_hide' => 0]);
          return response()->json($match);
-     } 
+     }
 
     // Hide match question
 
     public function hideMatchQuestion(Request $request, $id)
-       {  
+       {
            $match = Match::find($id);
            $match->update(['is_hide_question' => 1]);
            return response()->json($match);
-       }  
-       
-    
+       }
+
+
     // Show match question
 
     public function showMatchQuestion(Request $request, $id)
-    {  
+    {
         $match = Match::find($id);
         $match->update(['is_hide_question' => 0]);
         return response()->json($match);
-    } 
+    }
 
     // Match Active
 
     public function matchActive(Request $request, $id)
-    {  
+    {
         $match = Match::find($id);
         $match->update(['is_active' => 1]);
         return response()->json($match);
@@ -831,7 +834,7 @@ class MatchController extends Controller
     // Match Deactive
 
     public function matchDeactive(Request $request, $id)
-    {  
+    {
         $match = Match::find($id);
         $match->update(['is_active' => 0]);
         return response()->json($match);
@@ -840,7 +843,7 @@ class MatchController extends Controller
       // Close Match
 
       public function toLive(Request $request, $id)
-      {  
+      {
           $match = Match::find($id);
           $match->update(['status' => 'live']);
           return response()->json($match);
