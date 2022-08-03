@@ -20,27 +20,7 @@
             padding-top: 0px;
             padding-bottom: 0px;
         }
-        
-    /*========== Navbar part start ==========*/
-    .navbar {
-        background: linear-gradient(to bottom, #009b9b, #009b9b, #008989, #007777, #006666) !important;
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-    .navbar {
-        transition: all linear .4s;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        width: 100%;
-    }
-    .navbar-light .navbar-toggler {
-        color: #000;
-        border: 0;
-    }
 
-    .navbar-light .navbar-nav .nav-link{
-        padding: 0.2rem 0.5rem;
-    }
 
     .fa.fa-bars {
         color: #fff;
@@ -70,8 +50,8 @@
     .play-btn img {
         width: 40%;
     }
-        
-        
+
+
     /*========== Deshbord Page start ==========*/
     #deshbord .logo {
         width: 40%;
@@ -82,11 +62,11 @@
     #deshbord .nav-tabs .nav-item {
         width: 19%;
     }
-    
+
     .sidebar-li ul{
         overflow: scroll;
     }
-        
+
 }
 
 /*================================================================
@@ -104,26 +84,6 @@
             display: block;
         }
     /*========== Navbar part start ==========*/
-    .navbar {
-        border-bottom: 1px solid #fff;
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-    .navbar {
-        position: fixed;
-        top: 0;
-        transition: all linear .4s;
-        z-index: 9999;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-    }
-    .navbar-light .navbar-toggler {
-        color: #000;
-        border: 0;
-    }
 
     .fa.fa-bars {
         color: #fff;
@@ -141,9 +101,9 @@
         border-radius: 5px;
         margin-left: 80px;
     }
-    
+
     /*=========== Banner part start ===========*/
-        
+
     .banner_img2 {
         margin-right: 4px;
         margin-top: 25px;
@@ -155,31 +115,8 @@
         font-size: 26px;
         padding-bottom: 12px;
     }
-    
-    /*=========== Navbar_2 part start ===========*/
-    .navbar_2 ul li {
-        padding-bottom: 10px;
-        text-align: center;
-    }
-    .navbar_2 ul li a {
-        text-align: center;
-    }
-    .navbar_2 {
-        padding-left: 0;
-        padding-bottom: 0;
-    }
-    /*=========== Navbar_3 part start ===========*/
-    .navbar_3 ul li {
-        padding-bottom: 10px;
-        text-align: center;
-    }
-    .navbar_3 ul li a {
-        text-align: center;
-    }
-    .navbar_3 {
-        padding-left: 0;
-        padding-bottom: 10px;
-    }
+
+
     /*=========== Product part start ===========*/
     .write {
         padding-top: 32px;
@@ -192,10 +129,10 @@
     .contact_bar {
         margin-top: 25px;
     }
-    
+
     .sidebar-li ul{
         overflow: scroll;
-    }   
+    }
 }
 
 /*======================================================================
@@ -204,47 +141,9 @@
 
 @media (min-width: 576px) and (max-width: 767.98px) {
 
-    /*========== Navbar part start ==========*/
-    .navbar {
-        border-bottom: 1px solid #fff;
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-    .navbar {
-        position: fixed;
-        top: 0;
-        transition: all linear .4s;
-        z-index: 9999;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-    }
-    .navbar-light .navbar-toggler {
-        color: #000;
-        border: 0;
-    }
 
-    .fa.fa-bars {
-        color: #fff;
-        font-size: 30px;
-    }
-
-    .navbar-light .navbar-nav .nav-link {
-        text-align: center;
-        padding-top: 10px;
-        padding-left: 0;
-        margin-left: 60px;
-    }
-    .search-bar {
-        height: 20px;
-        border: none;
-        border-radius: 5px;
-        margin-left: 80px;
-    }
     /*=========== Banner part start ===========*/
-        
+
     .banner_img2 {
         margin-right: 4px;
         margin-top: 25px;
@@ -256,31 +155,8 @@
         font-size: 26px;
         padding-bottom: 12px;
     }
-    
-    /*=========== Navbar_2 part start ===========*/
-    .navbar_2 ul li {
-        padding-bottom: 10px;
-        text-align: center;
-    }
-    .navbar_2 ul li a {
-        text-align: center;
-    }
-    .navbar_2 {
-        padding-left: 0;
-        padding-bottom: 0;
-    }
-    /*=========== Navbar_3 part start ===========*/
-    .navbar_3 ul li {
-        padding-bottom: 10px;
-        text-align: center;
-    }
-    .navbar_3 ul li a {
-        text-align: center;
-    }
-    .navbar_3 {
-        padding-left: 0;
-        padding-bottom: 10px;
-    }
+
+
     /*=========== Product part start ===========*/
     .write {
         padding-top: 32px;
@@ -291,14 +167,14 @@
         text-align: center;
     }
     .contact_bar {
-        margin-left: 70px; 
+        margin-left: 70px;
         margin-top: 25px;
     }
-    
+
     .sidebar-li ul{
         overflow: scroll;
     }
-    
+
 }
 
 /*========================================================================
@@ -306,17 +182,7 @@
 =========================================================================*/
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-    
-/*========== Navbar part start ==========*/
-    .navbar {
-        position: fixed;
-        top: 0;
-        z-index: 9999;
-    }
-    .navbar-light .navbar-nav .nav-link {
-        padding: 0 8px;
-    }
-    
+
     .search-bar {
         margin-left: 10px;
         padding-left: 0;
@@ -326,5 +192,6 @@
     .sidebar-li ul{
         overflow: scroll;
     }
-    
+
 }
+

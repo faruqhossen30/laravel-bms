@@ -18,6 +18,12 @@
     <link rel="stylesheet" href="{{ asset('static/css/style.css?v=') . time() }}">
     <link rel="stylesheet" href="{{ asset('static/css/media.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <style>
+        .gradient-backgound {
+            background: linear-gradient(to bottom, #009b9b, #009b9b, #008989, #007777, #006666) !important;
+            z-index: 99;
+        }
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="100">

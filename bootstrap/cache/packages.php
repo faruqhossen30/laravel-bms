@@ -1,4 +1,15 @@
 <?php return array (
+  'appstract/laravel-options' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Appstract\\Options\\OptionsServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Option' => 'Appstract\\Options\\OptionFacade',
+    ),
+  ),
   'barryvdh/laravel-debugbar' => 
   array (
     'providers' => 

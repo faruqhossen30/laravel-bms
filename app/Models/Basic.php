@@ -22,6 +22,7 @@ class Basic extends Model
         'club_commission',
         'sponsor_commission',
         'notice',
+        'footer_notice',
         'copyright',
     ];
 }
