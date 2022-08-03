@@ -81,6 +81,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#sponsorModal"> My Sponsor </a>
                 </li>
+                @if(option('complain_system') == 'on')
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#complainModal"> Complain Box </a>
+                 </li>
+                @endif
                 <li class="nav-item">
                     <button class="nav-item btn btn-outline-warning ml-1">
                         {{ Auth::user()->name }} <span class="text-warning"> ({{ $bs->currency_symbol }} {{ number_format(Auth::user()->balance, 2) }}) </span>

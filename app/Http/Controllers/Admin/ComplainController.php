@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Complain;
+use Option;
 
 class ComplainController extends Controller
-{  
+{
 
     public function __construct()
     {
@@ -17,10 +18,10 @@ class ComplainController extends Controller
     }
 
     public function index(Request $request)
-    {  
+    {
         //User Find
         $user_id = null;
-        if ($request->user){
+        if ($request->user) {
             $find_user_id = DB::table('tit_users')->where('username', $request->user)->get();
             if ($find_user_id->count() > 0) {
                 $user_id = $find_user_id->pluck('id');
@@ -36,19 +37,19 @@ class ComplainController extends Controller
 
         //Complains
         $complains = Complain::orderBy('id', 'DESC')
-        ->where(function ($query) use ($filters) {
-            if ($filters['date']) {
-                $query->whereDate('created_at', '=', $filters['date']);
-            }
-            if ($filters['user_id']) {
-                $query->where('user_id', '=', $filters['user_id']);
-            }
-            if ($filters['status'] && $filters['status'] != 'All') {
-                $query->where('status', '=', $filters['status']);
-            }
-        })->paginate(100);
+            ->where(function ($query) use ($filters) {
+                if ($filters['date']) {
+                    $query->whereDate('created_at', '=', $filters['date']);
+                }
+                if ($filters['user_id']) {
+                    $query->where('user_id', '=', $filters['user_id']);
+                }
+                if ($filters['status'] && $filters['status'] != 'All') {
+                    $query->where('status', '=', $filters['status']);
+                }
+            })->paginate(100);
 
-        return view('admin.complains',compact('complains'));
+        return view('admin.complains', compact('complains'));
     }
 
     public function complain_solved(Request $request, $id)
@@ -58,7 +59,20 @@ class ComplainController extends Controller
         $complain->save();
         return response()->json([
             'success' => 'yes',
-            'message' =>'Compain Update Successfully'
+            'message' => 'Compain Update Successfully'
         ]);
+    }
+
+    public function complainonoff(Request $request)
+    {
+        $value = $request->complain_system;
+
+        if ($value == 'on') {
+            option(['complain_system' => 'on']);
+            return redirect()->back();
+        } else {
+            option(['complain_system' => 'off']);
+            return redirect()->back();
+        }
     }
 }

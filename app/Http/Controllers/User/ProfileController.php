@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Hash;
 use Brian2694\Toastr\Facades\Toastr;
 
 class ProfileController extends Controller
-{  
+{
    /**
      * Create a new controller instance.
      *
      * @return void
      */
     public function __construct()
-    {  
+    {
         $this->middleware('auth');
     }
 
@@ -34,20 +34,20 @@ class ProfileController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {   
+    {
         $auth = auth()->user()->id;
         $user = User::findOrFail($auth);
         $betCount = Bet::where('user_id', $auth)->count();
         $winCount = Bet::where('user_id',$auth)->where('status', 'win')->count();
-        return view('auth.account.profile',compact('user','betCount','winCount')); 
+        return view('auth.account.profile',compact('user','betCount','winCount'));
     }
     public function changeProfile(Request $request)
-    {   
+    {
         $request->validate([
         'password' => ['required', new MatchOldPassword],
         'club_id' => ['required'],
     ]);
-        
+
         $user = User::find(auth()->user()->id);
 		$user->update(['club_id'=> $request->club_id]);
 		Toastr::success('Update Successfully', 'Success');
@@ -68,18 +68,22 @@ class ProfileController extends Controller
     }
 
     public function statements()
-    {   
+    {
         $auth = auth()->user()->id;
         $bets = Bet::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
         $deposits = Deposit::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
         $withdraws =  Withdraw::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
         $transfers = BalanceTransfer::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
         $transactions = Transaction::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
-        return view('auth.statement.index',compact('bets','deposits','withdraws','transfers','transactions')); 
+        return view('auth.statement.index',compact('bets','deposits','withdraws','transfers','transactions'));
     }
 
     public function submitComplain(Request $request)
     {
+        if(option('complain_system') == 'off'){
+            return abort(403);
+        }
+
         $this->validate($request, [
             'contact_number' => 'required',
             'message' => 'required'
@@ -112,7 +116,7 @@ class ProfileController extends Controller
     public function alart()
     {   $auth = auth()->user()->id;
         $alarts = Alart::orderBy('id', 'DESC')->where('user_id', $auth)->where('is_user_alart','1')->where('is_viewed','0')->where('status','show')->get();
-        return view('auth.alart',compact('alarts'));  
+        return view('auth.alart',compact('alarts'));
     }
 
     public function alartCount()
@@ -127,6 +131,6 @@ class ProfileController extends Controller
         $data->save ();
         return response()->json($data);
     }
- 
+
 
 }

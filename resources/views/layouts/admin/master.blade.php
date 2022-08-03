@@ -12,11 +12,14 @@
       <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('static/images/favicon_io/favicon-16x16.png') }}">
       <link rel="manifest" href="{{ asset('static/images/favicon_io/site.webmanifest') }}">
       <title>@yield('title', 'Administer | 2WinBD')</title>
+      @stack('styles')
       <link href="{{ asset('static/administer/vendor/fontawesome/css/all.min.css') }}" rel="stylesheet" type="text/css">
       <link href="{{ asset('static/administer/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
       <link href="{{ asset('static/administer/vendor/summernote/summernote.min.css') }}" rel="stylesheet" type="text/css">
       <link href="{{ asset('static/administer/vendor/sweetalert/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
       <link href="{{ asset('static/administer/css/style.css') }}" rel="stylesheet" type="text/css">
+
+
    </head>
    <body id="page-top">
       <div id="wrapper">

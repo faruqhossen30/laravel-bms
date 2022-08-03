@@ -14,6 +14,7 @@ Route::get('/notifications', 'Admin\AlartController@index');
 Route::get('/notifications/{id}', 'Admin\AlartController@show');
 Route::get('/notifications-top', 'Admin\AlartController@notifications_top');
 Route::get('/complains', 'Admin\ComplainController@index');
+Route::post('/complains/system/on-off', 'Admin\ComplainController@complainonoff'); // Complain on of
 Route::post('/complain/solved/{id}', 'Admin\ComplainController@complain_solved');
 Route::get('/balance-transfers', 'Admin\BalanceTransferController@index');
 Route::get('/gateways', 'Admin\GatewayController@index');
