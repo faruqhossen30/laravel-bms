@@ -6,7 +6,7 @@ $(document).ready(function () {
 	$('.nav-link').on('click', function () {
 		$('.navbar-collapse').collapse('hide');
 	});
-	
+
 	// Filter Match
 	$(".filter-match").click(function () {
 		var value = $(this).attr('data-type');
@@ -59,9 +59,9 @@ $(document).ready(function () {
 	});
 
 	var min_deposit = 100;
-	var max_deposit = 500000;
+	var max_deposit = 1000000;
 	var min_withdraw = 500;
-	var max_withdraw = 25000;
+	var max_withdraw = 1000000;
 
 	//Deposit vadilate
 	$('#deposit_amount').on('keydown keyup change', function () {
@@ -84,7 +84,7 @@ $(document).ready(function () {
 			$('#deposit_popup_amount_error').html('Minimum Deposit Amount 100 TK');
 			$('#deposit_popup_btn').prop('disabled', true);
 		} else if (max_deposit < amount) {
-			$('#deposit_popup_amount_error').html('Max Deposit Amount 10000 TK');
+			$('#deposit_popup_amount_error').html('Max Deposit Amount 1,00,0000 TK');
 			$('#deposit_popup_btn').prop('disabled', true);
 		} else {
 			$('#deposit_popup_amount_error').html('');
@@ -99,7 +99,7 @@ $(document).ready(function () {
 			$('#withdraw_amount_error').html('Minimum Withdraw Amount 500 TK');
 			$('#withdraw_btn').prop('disabled', true);
 		} else if (max_withdraw < amount) {
-			$('#withdraw_amount_error').html('Max Withdraw Amount 1000 TK');
+			$('#withdraw_amount_error').html('Max Withdraw Amount 1,00,0000 TK');
 			$('#withdraw_btn').prop('disabled', true);
 		} else {
 			$('#withdraw_amount_error').html('');

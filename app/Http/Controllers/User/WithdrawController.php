@@ -15,12 +15,14 @@ class WithdrawController extends Controller
 {
 
     public function __construct()
-    {  
+    {
         $this->middleware('auth');
     }
 
     public function withdraw(Request $request){
-
+        if(option('withdraw_system') == 'off'){
+            return abort(403);
+        }
         $user = auth()->user();
         $currecy = Basic::findOrFail(1)->currency_code;
         $this->validate($request, [

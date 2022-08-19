@@ -17,18 +17,18 @@ Route::get('/route-cache', function() {
     Artisan::call('route:clear');
     return 'Routes cache cleared';
  });
- 
+
 
 Route::get('/config-cache', function() {
     Artisan::call('config:cache');
     return 'Config cache cleared';
  });
- 
+
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');
     return 'Application cache cleared';
  });
- 
+
 Route::get('/view-clear', function() {
     Artisan::call('view:clear');
     return 'View cache cleared';
@@ -48,11 +48,11 @@ Route::prefix('auth')->middleware(['auth'])->group(function () {
     Route::get('/', 'User\ProfileController@index')->name('home');
     Route::post('/gateway', 'User\DepositController@gatewayinfo')->name('gateway.info');
     Route::post('/deposit', 'User\DepositController@deposit')->name('user.storeDeposit');
-    Route::post('/balance-transfer', 'User\BalanceTransferController@balanceTransfer')->name('user.balanceTransfer');
+    // Route::post('/balance-transfer', 'User\BalanceTransferController@balanceTransfer')->name('user.balanceTransfer');
     Route::post('/withdraw', 'User\WithdrawController@withdraw')->name('user.storeWithdraw');
     Route::post('/change-profile', 'User\ProfileController@changeProfile')->name('change.profile');
     Route::post('/change-password', 'User\ProfileController@changePassword')->name('change.password');
-    
+
     //Statement
     Route::get('/statement', 'User\ProfileController@statements')->name('user.statement');
     Route::get('/alart', 'User\ProfileController@alart')->name('user.alart');

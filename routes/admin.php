@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
+Route::get('/balance', 'Admin\DashboardController@balance')->name('admin.balance');
 
 //Done Update 1.1.1
 Route::get('/transactions','Admin\TransactionController@index');
@@ -10,6 +11,7 @@ Route::post('/deposit/cancel/{id}', 'Admin\DepositController@deposit_cancel');
 Route::get('/withdraws','Admin\WithdrawController@index');
 Route::post('/withdraw/complete/{id}', 'Admin\WithdrawController@withdraw_complete');
 Route::post('/withdraw/cancel/{id}', 'Admin\WithdrawController@withdraw_cancel');
+Route::post('/withdraw/system/on-off', 'Admin\WithdrawController@widthdrawOnOff');
 Route::get('/notifications', 'Admin\AlartController@index');
 Route::get('/notifications/{id}', 'Admin\AlartController@show');
 Route::get('/notifications-top', 'Admin\AlartController@notifications_top');
