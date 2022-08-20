@@ -6,26 +6,12 @@
         @auth
         <div class="d-md-none icon-navbar">
             <ul class="nav nav-fill justify-content-end">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link active" href="#">
                         <span>
                             <i class="far fa-calendar-alt"></i>
                         </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                       <span>
-                        <i class="far fa-calendar-alt"></i>
-                       </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span>
-                            <i class="far fa-calendar-alt"></i>
-                        </span>
-                    </a>
+                    </a> --}}
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">
