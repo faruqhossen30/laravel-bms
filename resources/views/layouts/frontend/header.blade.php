@@ -40,11 +40,42 @@
             @auth
             @if (Auth::user()->is_club == '1')
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#"> Test</span></a>
+                <li class="nav-item d-md-none">
+                   <a class="nav-link" href="{{ route('club.profile') }}"> {{ Auth::user()->name }} <span class="text-warning"> ({{ $bs->currency_symbol }} {{ number_format(Auth::user()->balance, 2) }}) </span></a>
                 </li>
-
-            </ul>
+                <li class="nav-item d-md-none">
+                   <a class="nav-link" href="{{ route('club.profile') }}"> My Wallet </a>
+                </li>
+                <li class="nav-item d-md-none">
+                   <a class="nav-link" href="{{ route('club.statement') }}"> My Statement </a>
+                </li>
+                <li class="nav-item d-md-none">
+                   <a class="nav-link" href="#" data-toggle="modal" data-target="#ReferralsModal"> My Referrals </a>
+                </li>
+                <li class="nav-item d-md-none">
+                   <a class="nav-link" href="#" data-toggle="modal" data-target="#complainModal"> Complain Box </a>
+                </li>
+                <li class="nav-item dropdown d-none d-md-block">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   {{ Auth::user()->name }} <span class="text-warning"> ({{ $bs->currency_symbol }} {{ number_format(Auth::user()->balance, 2) }}) </span>
+                   </a>
+                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{ route('club.profile') }}">My Wallet</a>
+                      <a class="dropdown-item" href="{{ route('club.statement') }}">My Statement</a>
+                      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#ReferralsModal">My Referrals</a>
+                      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#complainModal">Complain Box</a>
+                   </div>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ route('user.alart') }}"> Alart <span class="badge badge-dark alart-count"></span> </a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                   {{ __('Logout') }}
+                   </a>
+                </li>
+             </ul>
             @elseif(Auth::user()->is_admin == '1')
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
