@@ -10,9 +10,11 @@
          <li class="nav-item">
             <a class="nav-link" id="deposit-tab" data-toggle="tab" href="#deposit" role="tab">Deposit</a>
          </li>
-         {{-- <li class="nav-item">
+         @if(option('balance_transfer') == 'on')
+         <li class="nav-item">
             <a class="nav-link" id="transfer-tab" data-toggle="tab" href="#transfer" role="tab">Transfer Balance</a>
-         </li> --}}
+         </li>
+         @endif
          @if(option('withdraw_system') == 'on')
          <li class="nav-item">
             <a class="nav-link" id="withdraw-tab" data-toggle="tab" href="#withdraw" role="tab">Withdraw</a>

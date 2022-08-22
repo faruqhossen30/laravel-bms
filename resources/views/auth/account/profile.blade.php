@@ -151,7 +151,9 @@ Dashboard | {{ $bs->site_name }}
 
                     @include('auth.account.deposit')
                     @include('auth.account.password')
-                    {{-- @include('auth.account.balanceTransfer') --}}
+                    @if(option('balance_transfer') == 'on')
+                        @include('auth.account.balanceTransfer')
+                    @endif
                     @if(option('withdraw_system') == 'on')
                         @include('auth.account.withdraw')
                     @endif

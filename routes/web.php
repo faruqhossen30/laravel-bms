@@ -48,7 +48,7 @@ Route::prefix('auth')->middleware(['auth'])->group(function () {
     Route::get('/', 'User\ProfileController@index')->name('home');
     Route::post('/gateway', 'User\DepositController@gatewayinfo')->name('gateway.info');
     Route::post('/deposit', 'User\DepositController@deposit')->name('user.storeDeposit');
-    // Route::post('/balance-transfer', 'User\BalanceTransferController@balanceTransfer')->name('user.balanceTransfer');
+    Route::post('/balance-transfer', 'User\BalanceTransferController@balanceTransfer')->name('user.balanceTransfer');
     Route::post('/withdraw', 'User\WithdrawController@withdraw')->name('user.storeWithdraw');
     Route::post('/change-profile', 'User\ProfileController@changeProfile')->name('change.profile');
     Route::post('/change-password', 'User\ProfileController@changePassword')->name('change.password');

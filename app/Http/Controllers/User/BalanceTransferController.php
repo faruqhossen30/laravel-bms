@@ -19,12 +19,15 @@ class BalanceTransferController extends Controller
      * @return void
      */
     public function __construct()
-    {  
+    {
         $this->middleware('auth');
     }
 
     public function balanceTransfer(Request $request)
-    {  
+    {
+        if(option('balance_transfer') == 'off'){
+            return abort(403);
+        }
         $request->validate([
             'password' => ['required', new MatchOldPassword],
             'amount' => ['required'],
@@ -35,11 +38,11 @@ class BalanceTransferController extends Controller
         $fromUser = auth()->user();
         $toUser = User::where('username', $request->to_username)->first();
         $amount = $request->amount;
-        
+
         if ($toUser->count() > 0 && $fromUser->balance > 0 && $amount > 0 && $fromUser->balance > $amount && $toUser->is_club == '1') {
            // Add Balance Transfer
         $addBalanceTransfer = new BalanceTransfer([
-            'user_id' => $fromUser->id,	 	 
+            'user_id' => $fromUser->id,
             'to_username' => $toUser->username,
             'amount' => $amount,
                 ]);
@@ -58,14 +61,14 @@ class BalanceTransferController extends Controller
     }
 
     public function fromAllAction($userid,$amount)
-    {  
+    {
         $user = User::find($userid);
         // Minus Balance From User
-        $minusBalance = $user->decrement('balance', $amount); 
+        $minusBalance = $user->decrement('balance', $amount);
 
         //Add Transaction From User
         $addTransaction = new Transaction([
-            'user_id' => $userid,	 	 
+            'user_id' => $userid,
             'debit' => $amount,
             'credit' => 0,
             'description' => 'Balance Transfer',
@@ -75,14 +78,14 @@ class BalanceTransferController extends Controller
     }
 
     public function toAllAction($userid,$amount)
-    {  
+    {
          $user = User::find($userid);
          //Add Balance To User
          $plusBalance = $user->increment('balance', $amount);
 
          //Add Transaction To User
          $addTransaction = new Transaction([
-            'user_id' => $userid,	 	 
+            'user_id' => $userid,
             'debit' => 0,
             'credit' => $amount,
             'description' => 'Received Balance',

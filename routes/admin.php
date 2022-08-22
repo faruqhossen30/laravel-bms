@@ -19,6 +19,7 @@ Route::get('/complains', 'Admin\ComplainController@index');
 Route::post('/complains/system/on-off', 'Admin\ComplainController@complainonoff'); // Complain on of
 Route::post('/complain/solved/{id}', 'Admin\ComplainController@complain_solved');
 Route::get('/balance-transfers', 'Admin\BalanceTransferController@index');
+Route::post('/balance-transfers/system/on-off', 'Admin\BalanceTransferController@balanceTransferOnOff'); // Balance Transfer on/off
 Route::get('/gateways', 'Admin\GatewayController@index');
 Route::get('/gateway/{id}', 'Admin\GatewayController@gateway_edit');
 Route::put('/gateway', 'Admin\GatewayController@gateway_update');

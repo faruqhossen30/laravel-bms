@@ -8,7 +8,7 @@ use DB;
 use App\Models\BalanceTransfer;
 
 class BalanceTransferController extends Controller
-{   
+{
 
     public function __construct()
     {
@@ -59,5 +59,18 @@ class BalanceTransferController extends Controller
         })->paginate(100);
 
         return view('admin.balance-transfers',compact('transfers'));
+    }
+
+    public function balanceTransferOnOff(Request $request)
+    {
+        $value = $request->balance_transfer;
+
+        if ($value == 'on') {
+            option(['balance_transfer' => 'on']);
+            return redirect()->back();
+        } else {
+            option(['balance_transfer' => 'off']);
+            return redirect()->back();
+        }
     }
 }
