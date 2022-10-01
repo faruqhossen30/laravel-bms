@@ -60,22 +60,17 @@
       m-0
       bg-clip-padding
       border-none
-    " aria-labelledby="dropdownMenuButton1">
+    "
+                aria-labelledby="dropdownMenuButton1">
+                @auth
                 <li>
-                    <a class="
-          dropdown-item
-          text-sm
-          py-2
-          px-4
-          font-normal
-          block
-          w-full
-          whitespace-nowrap
-          bg-transparent
-          text-gray-700
-          hover:bg-gray-100
-        " href="#">Logout </a>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();"
+                        class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">Logout
+                    </a>
                 </li>
+                @endauth
 
             </ul>
         </div>

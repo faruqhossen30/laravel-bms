@@ -21,13 +21,16 @@
 <body class="bg-emerald-900 h-screen">
     @include('layouts.frontend.header')
     @include('modal.modal')
+    @include('modal.sign-up')
 
     <!-- Main Section start -->
     @yield('content')
     <!-- Main Section end -->
 
     @include('layouts.frontend.footer')
-
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </body>
 
