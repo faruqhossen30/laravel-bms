@@ -9,15 +9,16 @@ use App\Models\Gateway;
 use Brian2694\Toastr\Facades\Toastr;
 
 class FrontendController extends Controller
-{ 
+{
 
 	public function index()
-	{   
+	{
 		$live_matchs = Match::orderBy('date','ASC')->orderBy('time','ASC')
 		->where('status','live')->where('is_hide',0)->get();
 		$upcoming_matchs = Match::orderBy('date','ASC')->orderBy('time','ASC')
 		->where('status','upcoming')->where('is_hide',0)->get();
-		return view('index', compact('live_matchs', 'upcoming_matchs'));
+		// return view('index', compact('live_matchs', 'upcoming_matchs'));
+        return view('homepage');
 	}
 
 	public function show_match_options($id)
@@ -82,7 +83,7 @@ class FrontendController extends Controller
 			'option' => $option,
             'question' => $option->question,
 			'match' => $option->match,
-			'match_details' => $option->match->team_one .' vs '. $option->match->team_two . ' || ' 
+			'match_details' => $option->match->team_one .' vs '. $option->match->team_two . ' || '
 			. $option->match->bet_statement . ' || ' .  $date. ',' . $time ,
 		];
 

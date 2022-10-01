@@ -1,12 +1,83 @@
-<section id="footer">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="card bg-transparent border-white mb-3">
-                <div class="card-header bg-light p-2 ">Notice</div>
-                <div class="card-body p-2">
-                  <p class="card-text text-white">{{$bs->footer_notice}}</p>
-                </div>
-              </div>
+<section class="p-2">
+    <div class="text-white border">
+        <div class="bg-yellow-400">
+            <h4 class="text-emerald-800 font-bold p-1">Nocice</h4>
         </div>
+        <p class="p-2">Welcome to NetT20.live😍Dear User😍All Time best service ❤️ Withdraw লিমিট 500 To 25,000
+            হাজার টাকা ! [All time Withdraw Open ] 😍আপনাদের অর্থ আমাদের কাছে সর্বদা নিরাপদ।❤️</p>
     </div>
 </section>
+<footer class="block w-full md:hidden sticky bottom-0 bg-white text-emerald-700 text-sm">
+    <div class="flex justify-around py-1">
+        <div class="">
+            <a href="#" class="flex flex-col text-center">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+        </div>
+        <div class="">
+            <a href="#" class="flex flex-col text-center">
+                <i class="fas fa-wallet"></i>
+                <span>Wallet</span>
+            </a>
+        </div>
+        <div class="">
+            <a href="#" class="flex flex-col text-center">
+                <span class="">
+                    <i class="far fa-money-bill-alt"></i>
+                </span>
+                <span>Deposite</span>
+            </a>
+        </div>
+        <div class="">
+            <a href="#" class="flex flex-col text-center">
+                <i class="fas fa-th-list"></i>
+                <span>Statement</span>
+            </a>
+        </div>
+        <div class="">
+            <a href="#" class="flex flex-col text-center dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user-circle"></i>
+                <span>Account</span>
+            </a>
+            <ul class="
+      dropdown-menu
+      min-w-max
+      absolute
+      hidden
+      bg-white
+      text-base
+      z-50
+      float-left
+      py-2
+      list-none
+      text-left
+      rounded-lg
+      shadow-lg
+      mt-1
+      hidden
+      m-0
+      bg-clip-padding
+      border-none
+    " aria-labelledby="dropdownMenuButton1">
+                <li>
+                    <a class="
+          dropdown-item
+          text-sm
+          py-2
+          px-4
+          font-normal
+          block
+          w-full
+          whitespace-nowrap
+          bg-transparent
+          text-gray-700
+          hover:bg-gray-100
+        " href="#">Logout </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</footer>
