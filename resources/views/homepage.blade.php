@@ -1,4 +1,5 @@
 @extends('layouts.frontend.master')
+@section('title', 'Welcome To '.$bs->site_name)
 @section('content')
 @include('inc.marque')
 <section class="p-1">
