@@ -25,6 +25,70 @@
                     <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
                     <span>Cricket</span>
                 </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
+                <a href="#"  class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
+                    <img src="{{asset('static')}}/img/cricket.png" class="h-5" alt="">
+                    <span>Cricket</span>
+                </a>
             </div>
         </div>
         <div class="col-span-12 md:col-span-7 bg-white">

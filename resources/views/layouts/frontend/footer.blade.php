@@ -3,8 +3,7 @@
         <div class="bg-yellow-400">
             <h4 class="text-emerald-800 font-bold p-1">Nocice</h4>
         </div>
-        <p class="p-2">Welcome to NetT20.live😍Dear User😍All Time best service ❤️ Withdraw লিমিট 500 To 25,000
-            হাজার টাকা ! [All time Withdraw Open ] 😍আপনাদের অর্থ আমাদের কাছে সর্বদা নিরাপদ।❤️</p>
+        <p class="p-2">{{$bs->footer_notice}}</p>
     </div>
 </section>
 <footer class="block w-full md:hidden sticky bottom-0 bg-white text-emerald-700 text-sm">
