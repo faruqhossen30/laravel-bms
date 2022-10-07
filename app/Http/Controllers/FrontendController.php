@@ -18,7 +18,7 @@ class FrontendController extends Controller
 		$upcoming_matchs = Match::orderBy('date','ASC')->orderBy('time','ASC')
 		->where('status','upcoming')->where('is_hide',0)->get();
 		// return view('index', compact('live_matchs', 'upcoming_matchs'));
-        return view('homepage');
+        return view('homepage', compact('live_matchs', 'upcoming_matchs'));
 	}
 
 	public function show_match_options($id)

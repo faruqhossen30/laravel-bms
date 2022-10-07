@@ -9,13 +9,13 @@
 <footer class="block w-full md:hidden sticky bottom-0 bg-white text-emerald-700 text-sm">
     <div class="flex justify-around py-1">
         <div class="">
-            <a href="#" class="flex flex-col text-center">
+            <a href="" class="flex flex-col text-center">
                 <i class="fas fa-home"></i>
                 <span>Home</span>
             </a>
         </div>
         <div class="">
-            <a href="#" class="flex flex-col text-center">
+            <a href="{{ route('home') }}" class="flex flex-col text-center">
                 <i class="fas fa-wallet"></i>
                 <span>Wallet</span>
             </a>
