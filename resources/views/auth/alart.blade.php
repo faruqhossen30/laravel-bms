@@ -1,50 +1,25 @@
 @extends('layouts.frontend.master')
-
-@section('title')
-Alarts | {{ $bs->site_name }}
-@endsection
-
+@section('title', 'Welcome To ' . $bs->site_name)
 @section('content')
+    <div class="bg-white p-2">
 
-<section id="dashboard">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-12 col-xl-12">
-                <div class="tab-content">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title mb-0">Alarts</h5>
-                        </div>
-                        <div class="card-body p-2">
-                            @if(!empty($alarts) && $alarts->count())
-                            @foreach($alarts as $alart)
-                            <div class="box alert alert-primary" data-id="{{ $alart->id }}">
-                                <button type="button" class="close">
-                                    ×</button>
-                                <strong>
-                                    {{ $alart->title }}
-                                </strong>
-                                <hr class="message-inner-separator">
-                                <p>
-                                    {{ $alart->description }}
-                                </p>
-                            </div>
-                            @endforeach
-                            @else
-                            <b> No alarts found! </b>
-                            @endif
-                        </div>
-                    </div>
+        @if (!empty($alarts) && $alarts->count())
+            @foreach ($alarts as $alart)
+                <div class="alert bg-yellow-100 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full alert-dismissible fade show"
+                    role="alert">
+                    <strong class="mr-1"> {{ $alart->title }} </strong>  {{ $alart->description }}
+                    <button type="button"
+                        class="box btn-close box-content w-4 h-4 p-1 ml-auto text-blue-600 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline"
+                        data-bs-dismiss="alert" aria-label="Close" data-id="{{ $alart->id }}">X</button>
                 </div>
-            </div>
-        </div>
+            @endforeach
+        @else
+            <b> No alarts found! </b>
+        @endif
     </div>
-</section>
 @endsection
 
 @push('script')
-
 <script>
     $(document).ready(function() {
 

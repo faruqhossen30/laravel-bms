@@ -21,7 +21,7 @@
             </a>
         </div>
         <div class="">
-            <a href="#" class="flex flex-col text-center">
+            <a class="flex flex-col text-center" data-bs-toggle="modal" data-bs-target="#depositeModal">
                 <span class="">
                     <i class="far fa-money-bill-alt"></i>
                 </span>

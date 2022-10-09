@@ -3,7 +3,7 @@
         <a href="{{route('index')}}" class="flex items-center mr-4">
             <img src="{{ asset('static') }}/img/logo.png" class="h-8" alt="">
         </a>
-        <div class="flex sm:justify-end md:justify-between flex-grow items-center">
+        <div class="flex justify-end sm:justify-end md:justify-between flex-grow items-center">
             @auth
             @if (Auth::user()->is_club == '1')
             <div class="hidden md:block text-white text-sm font-bold space-x-3">
@@ -18,7 +18,7 @@
             <div class="hidden md:block text-white text-sm font-bold space-x-3">
                 <a href="{{ route('home') }}">Wallet </a>
                 <a href="{{ route('user.statement') }}">Statement </a>
-                <a href="#">Deposite </a>
+                <button data-bs-toggle="modal" data-bs-target="#depositeModal" >Deposite </button>
                 <a href="#">My Sponser </a>
                 <a href="{{ route('user.alart') }}"> Alart <span class="badge badge-dark alart-count"></span> </a>
             </div>

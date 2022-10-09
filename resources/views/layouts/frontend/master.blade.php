@@ -10,8 +10,8 @@
         integrity="sha512-3M00D/rn8n+2ZVXBO9Hib0GKNpkm8MSUU/e2VNthDyBYxKWG+BftNYYcuEjXlyrSO637tidzMBXfE7sQm0INUg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{{ asset('static/css/toastr.min.css') }}">
+        <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         .accordion-button:after {
@@ -22,9 +22,10 @@
 
 <body class="bg-emerald-900 h-screen">
     @include('layouts.frontend.header')
-    @include('modal.modal')
+    @include('modal.sign-in')
     @include('modal.sign-up')
     @include('modal.bet-now')
+    @include('modal.deposite')
 
     <!-- Main Section start -->
     @yield('content')
@@ -39,6 +40,7 @@
     <script src="{{ asset('static/js/toastr.min.js') }}"></script>
     <script src="{{ asset('static/js/customjs-new.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    @stack('script')
 </body>
 
 </html>
