@@ -21,7 +21,13 @@
             </a>
         </div>
         <div class="">
-            <a class="flex flex-col text-center" data-bs-toggle="modal" data-bs-target="#depositeModal">
+            <a class="flex flex-col text-center"
+            @if (Auth::check())
+            data-bs-toggle="modal" data-bs-target="#depositeModal"
+            @else
+            data-bs-toggle="modal" data-bs-target="#loginModal"
+            @endif
+            >
                 <span class="">
                     <i class="far fa-money-bill-alt"></i>
                 </span>
@@ -40,27 +46,7 @@
                 <i class="fas fa-user-circle"></i>
                 <span>Account</span>
             </a>
-            <ul class="
-      dropdown-menu
-      min-w-max
-      absolute
-      hidden
-      bg-white
-      text-base
-      z-50
-      float-left
-      py-2
-      list-none
-      text-left
-      rounded-lg
-      shadow-lg
-      mt-1
-      hidden
-      m-0
-      bg-clip-padding
-      border-none
-    "
-                aria-labelledby="dropdownMenuButton1">
+            <ul class=" dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none " aria-labelledby="dropdownMenuButton1">
                 @auth
                 <li>
                     <a href="{{ route('logout') }}"

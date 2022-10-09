@@ -1,7 +1,7 @@
 <header class="sticky top-0 z-50">
     <div class="flex h-14 px-2 bg-emerald-800 border-b-2 border-emerald-600 ">
         <a href="{{route('index')}}" class="flex items-center mr-4">
-            <img src="{{ asset('static') }}/img/logo.png" class="h-8" alt="">
+            <img src="{{ asset('static') }}/img/20.png" class="h-8" alt="">
         </a>
         <div class="flex justify-end sm:justify-end md:justify-between flex-grow items-center">
             @auth
@@ -19,7 +19,6 @@
                 <a href="{{ route('home') }}">Wallet </a>
                 <a href="{{ route('user.statement') }}">Statement </a>
                 <button data-bs-toggle="modal" data-bs-target="#depositeModal" >Deposite </button>
-                <a href="#">My Sponser </a>
                 <a href="{{ route('user.alart') }}"> Alart <span class="badge badge-dark alart-count"></span> </a>
             </div>
             @endif

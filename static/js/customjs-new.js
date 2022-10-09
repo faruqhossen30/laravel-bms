@@ -12,7 +12,6 @@ $(document).ready(function () {
             url: Site_Url + 'option/' + option_id,
             type: "GET",
             success: function (data) {
-                console.log(data)
                 $('#lacebetModalBody').empty();
                 $('#lacebetModalBody').append(data);
 
@@ -24,7 +23,7 @@ $(document).ready(function () {
                 } else if (xhr.status == 404) {
                     msg = "Requested page not found. [404]" + xhr.responseText;
                 } else if (xhr.status == 500) {
-                    msg = "Internal Server Error [500]." +  xhr.responseText;
+                    msg = "Internal Server Error [500]." + xhr.responseText;
                 } else if (exception === "parsererror") {
                     msg = "Requested JSON parse failed.";
                 } else if (exception === "timeout") {
@@ -39,33 +38,27 @@ $(document).ready(function () {
         });
 
 
-        // $.get(Site_Url + 'option/' + option_id, function (data) {
-        //     $('.optionTitle').html(data.match_details);
-        //     $('.status').html(data.match.status);
-        //     $('.questionName').html(data.question.name);
-        //     $('.optionName').html(data.option.name);
-        //     $('.ratio').html(data.option.bet_rate);
-        //     var value = $("input[name='amount']:checked").val();
-        //     $('.selected_plan').val(value);
-        //     var amount = $("input[name='predict_amount']").val();
-        //     $('.stake').html(amount);
-        //     $('.retunt').html(data.option.bet_rate * amount);
-        //     $("input[name='amount']").click(function () {
-        //         var value = $("input[name='amount']:checked").val();
-        //         $('.selected_plan').val(value);
-        //         var amount = $("input[name='predict_amount']").val();
-        //         $('.stake').html(amount);
-        //         $('.retunt').html(data.option.bet_rate * amount);
-        //     });
-        //     $("input[name='predict_amount']").change(function () {
-        //         var amount = $("input[name='predict_amount']").val();
-        //         $('.stake').html(amount);
-        //         $('.retunt').html(data.option.bet_rate * amount);
-        //     });
-        //     $('#betModal').modal('show');
-        //     $('#option_id').val(data.option.id);
-        //     $('#name').val(data.option.name);
-        // });
+
+        $(document).on('change', 'input:radio[name=amount]', function () {
+            let amount = $(this).val();
+            console.log(amount)
+            $('input[name=predict_amount]').val(amount)
+            $('input:radio[name=amount]').parent().removeClass('bg-red-500 text-white');
+            $('input[name=amount]:checked').parent().addClass('bg-red-500 text-white');
+            changeAmount()
+        });
+
+    });
+
+    function changeAmount() {
+        let amount = $("input[name='predict_amount']").val();
+        let betRate = $("#betRate").data('betrate');
+        $('.stake').html(amount);
+        $('.retunt').html((amount * betRate).toFixed(2));
+    }
+    $(document).on('change', "input[name='predict_amount']", function () {
+        changeAmount();
+
     });
 
 });

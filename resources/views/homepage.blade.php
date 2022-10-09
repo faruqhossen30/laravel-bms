@@ -4,61 +4,43 @@
     @include('inc.marque')
     <section class="p-1">
         <div class="grid grid-cols-12 gap-1">
-            <div class="hidden md:block md:col-span-2 bg-white text-gray-500 text-sm rounded-md">
-                <div class="bg-emerald-700">
-                    <h4 class="text-white font-bold p-1 text-center">Sports</h4>
-                </div>
-                <div class="flex flex-col space-y-1">
-                    <a href="#" class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100 ">
-                        <img src="{{ asset('static') }}/img/footbal.png" class="h-5" alt="">
-                        <span>All</span>
-                    </a>
-                    <a href="#" class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
-                        <img src="{{ asset('static') }}/img/cricket.png" class="h-5" alt="">
-                        <span>Cricket</span>
-                    </a>
-                    <a href="#" class="flex space-x-1 border-b-2 ml-2 last:border-b-0 p-1 hover:bg-green-100">
-                        <img src="{{ asset('static') }}/img/footbal.png" class="h-5" alt="">
-                        <span>Football</span>
-                    </a>
-
-                </div>
-            </div>
+            @include('inc.leftsidebar')
             <div class="col-span-12 md:col-span-7 bg-white">
                 <div class="flex items-center bg-emerald-700 text-white text-sm overflow-x-auto">
-                    <a href="#" class="flex items-center space-x-2 px-2 py-1 border-b-4 border-yellow-400">
+                    <a href="{{ route('index') }}"
+                        class="flex items-center space-x-2 px-2 py-1 @if (request()->is('/')) border-b-4 border-yellow-400 @endif">
                         <img src="{{ asset('static') }}/img/footbal.png" class="h-4" alt="">
                         <span>All</span>
                     </a>
-                    <a href="#" class="flex items-center space-x-2 px-2 py-1 ">
+                    <a href="{{ route('sport', 'Cricket') }}" class="flex items-center space-x-2 px-2 py-1 ">
                         <img src="{{ asset('static') }}/img/cricket.png" class="h-4" alt="">
                         <span>Cricket</span>
                     </a>
-                    <a href="#" class="flex items-center space-x-2 px-2 py-1">
+                    <a href="{{ route('sport', 'FootBall') }}" class="flex items-center space-x-2 px-2 py-1">
                         <img src="{{ asset('static') }}/img/footbal.png" class="h-4" alt="">
                         <span>Football</span>
                     </a>
-                    <a href="#" class="flex items-center space-x-2 px-2 py-1">
+                    <a href="{{ route('sport', 'Basketball') }}" class="flex items-center space-x-2 px-2 py-1">
                         <img src="{{ asset('static') }}/img/basketball-1.png" class="h-4" alt="">
                         <span>Basketball</span>
                     </a>
-                    <a href="#" class="flex items-center space-x-2 px-2 py-1">
+                    <a href="{{ route('sport', 'hockey') }}" class="flex items-center space-x-2 px-2 py-1">
                         <img src="{{ asset('static') }}/img/cricket.png" class="h-4" alt="">
                         <span>Hocky</span>
                     </a>
-                    <a href="#" class="flex items-center space-x-2 px-2 py-1">
+                    <a href="{{ route('sport', 'Tennis') }}" class="flex items-center space-x-2 px-2 py-1">
                         <img src="{{ asset('static') }}/img/tenis.png" class="h-4" alt="">
                         <span>Tenis</span>
                     </a>
-                    <a href="#" class="flex items-center space-x-2 px-2 py-1">
+                    <a href="{{ route('sport', 'Volleyball') }}" class="flex items-center space-x-2 px-2 py-1">
                         <img src="{{ asset('static') }}/img/volyball.png" class="h-4" alt="">
                         <span>Voliball</span>
                     </a>
-                    <a href="#" class="flex items-center space-x-2 px-2 py-1">
+                    <a href="{{ route('sport', 'TableTennis') }}" class="flex items-center space-x-2 px-2 py-1">
                         <img src="{{ asset('static') }}/img/tabletanis.png" class="h-4" alt="">
                         <span>Table_Tanis</span>
                     </a>
-                    <a href="#" class="flex items-center space-x-2 px-2 py-1">
+                    <a href="{{ route('sport', 'Badminton') }}" class="flex items-center space-x-2 px-2 py-1">
                         <img src="{{ asset('static') }}/img/badminton.png" class="h-4" alt="">
                         <span>Badminton</span>
                     </a>
@@ -187,7 +169,7 @@
                                         </button>
                                         <img src="{{ asset('static') }}/img/live.gif" class="h-4 m-2" alt="">
                                     </h2>
-                                    <div id="collapse{{ $match->id }}" class="accordion-collapse collapse show"
+                                    <div id="collapse{{ $match->id }}" class="accordion-collapse collapse "
                                         aria-labelledby="headingTwo5">
                                         <div class="accordion-body py-2">
                                             @if (!empty($match->questions) && $match->questions->count())
@@ -203,9 +185,13 @@
                                                                     @foreach ($question->options as $key => $option)
                                                                         @if ($option->status == 'active' && $option->is_hide == '0')
                                                                             <div class="flex justify-between bg-emerald-600 w-full rounded-sm cursor-pointer {{ $match->is_active == '1' && $question->is_active == '1' ? 'betInfo' : '' }}"
-                                                                                data-bs-toggle="modal" data-bs-target="#betModal" data-id="{{ $option->id }}">
-                                                                                <span class="text-white font-light p-1">{{ $option->name }}</span>
-                                                                                <span class="bg-emerald-800 text-white font-light p-1 px-4">{{ number_format ($option->bet_rate, 2) }}</span>
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#betModal"
+                                                                                data-id="{{ $option->id }}">
+                                                                                <span
+                                                                                    class="text-white font-light p-1">{{ $option->name }}</span>
+                                                                                <span
+                                                                                    class="bg-emerald-800 text-white font-light p-1 px-4">{{ number_format($option->bet_rate, 2) }}</span>
                                                                             </div>
                                                                         @endif
                                                                     @endforeach
@@ -225,108 +211,7 @@
                 </div>
             </div>
             <!-- Sidebar start -->
-            <div class="hidden md:block md:col-span-3 bg-emerald-700">
-                <div class="bg-emerald-700">
-                    <h4 class="text-white font-bold p-1 text-center">Upcomming Match</h4>
-                </div>
-                <div>
-                    <div class="accordion p-1" id="accordionExample5">
-                        <div class="accordion-item bg-white border border-gray-200">
-                            <h2 class="accordion-header mb-0" id="headingTwo5">
-                                <button
-                                    class="
-                          accordion-button
-                          collapsed
-                          relative
-                          flex
-                          items-center
-                          w-full
-                          py-2
-                          px-5
-                          text-base text-gray-700 text-left
-                          bg-green-100
-                          border-0
-                          rounded-none
-                          transition
-                          focus:outline-none
-                        "
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapse2"
-                                    aria-expanded="false" aria-controls="collapse2" style="border-radius: 0;">
-                                    <div class="shrink-0">
-                                        <img class="h-12 w-12" src="{{ asset('static') }}/img/cricket-logo.png"
-                                            alt="ChitChat Logo">
-                                    </div>
-
-                                    <div class="flex flex-col ml-2">
-                                        <span class="font-semibold">Bangladesh Vs Srilanka</span>
-                                        <span class="text-orange-700 text-sm font-semibold">Chaina Division 1</span>
-                                        <div class="text-sm">
-                                            <span>
-                                                <i class="fas fa-calendar-alt"></i>
-                                                28 September 2022
-                                            </span>
-                                            <span>
-                                                <i class="far fa-clock"></i>
-                                                10:05 PM
-                                            </span>
-                                        </div>
-                                    </div>
-                                </button>
-                            </h2>
-                            <div id="collapse2" class="accordion-collapse collapse show" aria-labelledby="headingTwo5">
-                                <div class="accordion-body py-2">
-                                    <div>
-                                        <div class="text-white bg-gray-200 border">
-                                            <h4 class="text-gray-600 font-bold p-1">Who win the match</h4>
-                                        </div>
-                                        <div class="flex justify-between space-x-1 p-2 text-sm">
-                                            <div class="flex justify-between bg-emerald-600 w-full rounded-sm ">
-                                                <span class="text-white font-bold p-1">Bangladesh</span>
-                                                <span class="bg-emerald-800 text-white font-bold p-1 px-4">2.50</span>
-                                            </div>
-                                            <div class="flex justify-between bg-emerald-600 w-full rounded-sm">
-                                                <span class="text-white font-bold p-1">Srilanka</span>
-                                                <span class="bg-emerald-800 text-white font-bold p-1 px-4">1.50</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="text-white bg-gray-200 border">
-                                            <h4 class="text-gray-600 font-bold p-1">Who win the match</h4>
-                                        </div>
-                                        <div class="flex justify-between space-x-1 p-2 text-sm">
-                                            <div class="flex justify-between bg-emerald-600 w-full rounded-sm ">
-                                                <span class="text-white font-bold p-1">Bangladesh</span>
-                                                <span class="bg-emerald-800 text-white font-bold p-1 px-4">2.50</span>
-                                            </div>
-                                            <div class="flex justify-between bg-emerald-600 w-full rounded-sm">
-                                                <span class="text-white font-bold p-1">Srilanka</span>
-                                                <span class="bg-emerald-800 text-white font-bold p-1 px-4">1.50</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="text-white bg-gray-200 border">
-                                            <h4 class="text-gray-600 font-bold p-1">Who win the match</h4>
-                                        </div>
-                                        <div class="flex justify-between space-x-1 p-2 text-sm">
-                                            <div class="flex justify-between bg-emerald-600 w-full rounded-sm ">
-                                                <span class="text-white font-bold p-1">Bangladesh</span>
-                                                <span class="bg-emerald-800 text-white font-bold p-1 px-4">2.50</span>
-                                            </div>
-                                            <div class="flex justify-between bg-emerald-600 w-full rounded-sm">
-                                                <span class="text-white font-bold p-1">Srilanka</span>
-                                                <span class="bg-emerald-800 text-white font-bold p-1 px-4">1.50</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('inc.rightsidebar')
             <!-- Sidebar end -->
         </div>
         <div class="md:hidden bg-emerald-700">

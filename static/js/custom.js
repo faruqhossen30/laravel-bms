@@ -132,6 +132,7 @@ $(document).ready(function () {
 				$('.questionName').html(data.question.name);
 				$('.optionName').html(data.option.name);
 				$('.ratio').html(data.option.bet_rate);
+
 				var value = $("input[name='amount']:checked").val();
 				$('.selected_plan').val(value);
 				var amount = $("input[name='predict_amount']").val();

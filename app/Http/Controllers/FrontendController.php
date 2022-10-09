@@ -18,7 +18,29 @@ class FrontendController extends Controller
 		$upcoming_matchs = Match::orderBy('date','ASC')->orderBy('time','ASC')
 		->where('status','upcoming')->where('is_hide',0)->get();
 		// return view('index', compact('live_matchs', 'upcoming_matchs'));
+        // return $live_matchs;
         return view('homepage', compact('live_matchs', 'upcoming_matchs'));
+	}
+
+	public function sport(Request $request, $sport)
+	{
+        try {
+            $live_matchs = Match::where('match_type', $sport)->orderBy('date','ASC')->orderBy('time','ASC')
+            ->where('status','live')->where('is_hide',0)->get();
+
+            // return $live_matchs;
+
+            $upcoming_matchs = Match::where('match_type', $sport)->orderBy('date','ASC')->orderBy('time','ASC')
+            ->where('status','upcoming')->where('is_hide',0)->get();
+            // return view('index', compact('live_matchs', 'upcoming_matchs'));
+            return view('homepage', compact('live_matchs', 'upcoming_matchs'));
+
+          } catch (\Exception $e) {
+
+              return abort(404);
+          }
+
+
 	}
 
 	public function show_match_options($id)

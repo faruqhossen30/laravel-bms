@@ -112,7 +112,7 @@
                                         <option value="Rugby">Rugby</option>
                                         <option value="Snooker">Snooker</option>
                                         <option value="Darts">Darts</option>
-                                        <option value="Table Tennis">Table Tennis</option>
+                                        <option value="TableTennis">Table Tennis</option>
                                         <option value="Beach Volley">Beach Volley</option>
                                         <option value="Floor Ball">Floor Ball</option>
                                         <option value="Bandy">Bandy</option>
@@ -120,6 +120,7 @@
                                         <option value="Lucky Card">Lucky Card</option>
                                         <option value="Esports">Esports</option>
                                         <option value="Volleyball">Volleyball</option>
+                                        <option value="hockey">Hockey</option>
                                     </select>
                                 </div>
                             </div>
@@ -204,4 +205,3 @@
             </div>
         </div>
     </div>
-     
