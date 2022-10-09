@@ -9,9 +9,9 @@
                     <form method="POST" action="{{ route('change.profile') }}">
                         @csrf
                         <div class="form-group mb-6">
-                            <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">Club
+                            <label for="forClub" class="form-label inline-block mb-2 text-gray-700">Club
                                 <span class="text-red-600">*</span></label>
-                            <select name="method"
+                            <select name="method" id="forClub"
                                 class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                 aria-label="Default select example">
                                 @if (!empty($clubs) && $clubs->count())
@@ -24,11 +24,11 @@
                             </select>
                         </div>
                         <div class="form-group mb-6">
-                            <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">Password
+                            <label for="forPassword" class="form-label inline-block mb-2 text-gray-700">Password
                                 <span class="text-red-600">*</span></label>
                             <input name="password" type="password"
                                 class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password">
+                                id="forPassword" aria-describedby="emailHelp" placeholder="Password">
                         </div>
 
                         <button type="submit"

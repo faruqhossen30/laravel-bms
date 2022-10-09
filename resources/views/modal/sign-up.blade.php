@@ -18,51 +18,51 @@
                         @csrf
                         <div class="grid grid-cols-2 gap-4">
                             <div class="form-group mb-6">
-                                <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">Full
+                                <label for="forRegistrationFullname" class="form-label inline-block mb-2 text-gray-700">Full
                                     Name<span class="text-red-600">*</span></label>
                                 <input name="name" type="text"
                                     class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Full Name">
+                                    id="forRegistrationFullname" aria-describedby="emailHelp" placeholder="Full Name">
 
 
                             </div>
                             <div class="form-group mb-6">
-                                <label for="exampleInputEmail1"
+                                <label for="forUsernameRegis"
                                     class="form-label inline-block mb-2 text-gray-700">Username <span
                                         class="text-red-600">*</span></label>
                                 <input name="username" type="text"
                                     class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+                                    id="forUsernameRegis" aria-describedby="emailHelp" placeholder="Username">
 
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
 
                             <div class="form-group mb-6">
-                                <label for="exampleInputEmail1"
+                                <label for="forRegisterMobile"
                                     class="form-label inline-block mb-2 text-gray-700">Mobile <span
                                         class="text-red-600">*</span></label>
                                 <input name="mobile" type="text"
                                     class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Mobile no">
+                                    id="forRegisterMobile" aria-describedby="emailHelp" placeholder="Mobile no">
                             </div>
                             <div class="form-group mb-6">
-                                <label for="exampleInputEmail1"
+                                <label for="forRegisterEmail"
                                     class="form-label inline-block mb-2 text-gray-700">Email<span
                                         class="text-red-600">*</span></label>
                                 <input name="email" type="email"
                                     class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                                    id="forRegisterEmail" aria-describedby="emailHelp" placeholder="Email">
 
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
 
                             <div class="form-group mb-6">
-                                <label for="exampleInputEmail1"
+                                <label for="forRegisterClub"
                                     class="form-label inline-block mb-2 text-gray-700">Select Club <span
                                         class="text-red-600">*</span></label>
-                                <select name="club_id"
+                                <select name="club_id" id="forRegisterClub"
                                     class="form-select appearance-none
                                         block
                                         w-full
@@ -88,26 +88,26 @@
                                 </select>
                             </div>
                             <div class="form-group mb-6">
-                                <label for="exampleInputEmail1"
+                                <label for="forResiterSponserName"
                                     class="form-label inline-block mb-2 text-gray-700">Sponser Name<span
                                         class="text-red-600">*</span></label>
                                 <input name="sponsor" type="text"
                                     class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Sponser Name">
+                                    id="forResiterSponserName" aria-describedby="emailHelp" placeholder="Sponser Name">
 
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="form-group mb-6">
-                                <label for="exampleInputEmail1"
+                                <label for="forResisterPassword"
                                     class="form-label inline-block mb-2 text-gray-700">Password <span
                                         class="text-red-600">*</span></label>
                                 <input name="password"  type="password"
                                     class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password">
+                                    id="forResisterPassword" aria-describedby="emailHelp" placeholder="Password">
                             </div>
                             <div class="form-group mb-6">
-                                <label for="exampleInputEmail1"
+                                <label for="forConpas"
                                     class="form-label inline-block mb-2 text-gray-700">Confirm Password <span
                                         class="text-red-600">*</span></label>
                                 <input name="password_confirmation" id="confirmPassword" type="password"

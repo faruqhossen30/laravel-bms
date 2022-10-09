@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css"
         integrity="sha512-3M00D/rn8n+2ZVXBO9Hib0GKNpkm8MSUU/e2VNthDyBYxKWG+BftNYYcuEjXlyrSO637tidzMBXfE7sQm0INUg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{{ asset('static/css/toastr.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         .accordion-button:after {
@@ -22,6 +24,7 @@
     @include('layouts.frontend.header')
     @include('modal.modal')
     @include('modal.sign-up')
+    @include('modal.bet-now')
 
     <!-- Main Section start -->
     @yield('content')
@@ -31,6 +34,10 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
         @csrf
     </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ asset('static/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('static/js/toastr.min.js') }}"></script>
+    <script src="{{ asset('static/js/customjs-new.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </body>
 

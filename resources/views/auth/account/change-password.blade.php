@@ -9,25 +9,25 @@
                     <form method="POST" action="{{ route('change.password') }}">
                         @csrf
                         <div class="form-group mb-6">
-                            <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">Curent
+                            <label for="forCurentPass" class="form-label inline-block mb-2 text-gray-700">Curent
                                 Password <span class="text-red-600">*</span></label>
                             <input name="current_password" type="password"
                                 class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password" required>
+                                id="forCurentPass" aria-describedby="emailHelp" placeholder="Password" required>
                         </div>
                         <div class="form-group mb-6">
-                            <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">New
+                            <label for="forNewPas" class="form-label inline-block mb-2 text-gray-700">New
                                 Password <span class="text-red-600">*</span></label>
                             <input name="new_password" type="password"
                                 class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password" required>
+                                id="forNewPas" aria-describedby="emailHelp" placeholder="Password" required>
                         </div>
                         <div class="form-group mb-6">
-                            <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">Confirm
+                            <label for="forConfPass" class="form-label inline-block mb-2 text-gray-700">Confirm
                                 Password <span class="text-red-600">*</span></label>
                             <input name="new_confirm_password" type="password"
                                 class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password" required>
+                                id="forConfPass" aria-describedby="emailHelp" placeholder="Password" required>
                         </div>
 
                         <button type="submit"

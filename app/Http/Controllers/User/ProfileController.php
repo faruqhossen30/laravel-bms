@@ -70,12 +70,32 @@ class ProfileController extends Controller
     public function statements()
     {
         $auth = auth()->user()->id;
+        $sec = null;
+        if (isset($_GET['sec'])) {
+            $sec = $_GET['sec'];
+        }
+
+        if($sec &&  $sec == 'deposit'){
+            $deposits = Deposit::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
+            return view('auth.statement.deposite',compact('deposits'));
+        }
+        if($sec &&  $sec == 'withdraw'){
+            $withdraws =  Withdraw::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
+            return view('auth.statement.withdraw',compact('withdraws'));
+        }
+        if($sec &&  $sec == 'transfer'){
+            $transfers = BalanceTransfer::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
+            return view('auth.statement.balance-transfer',compact('transfers'));
+        }
+        if($sec &&  $sec == 'transaction'){
+            $transactions = Transaction::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
+            return view('auth.statement.transaction',compact('transactions'));
+        }
+
         $bets = Bet::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
-        $deposits = Deposit::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
-        $withdraws =  Withdraw::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
-        $transfers = BalanceTransfer::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
-        $transactions = Transaction::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
-        return view('auth.statement.index',compact('bets','deposits','withdraws','transfers','transactions'));
+
+
+        return view('auth.statement.index',compact('bets'));
     }
 
     public function submitComplain(Request $request)

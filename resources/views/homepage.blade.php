@@ -51,7 +51,7 @@
                         <span>Tenis</span>
                     </a>
                     <a href="#" class="flex items-center space-x-2 px-2 py-1">
-                        <img src="{{ asset('static') }}/img/bolyball.png" class="h-4" alt="">
+                        <img src="{{ asset('static') }}/img/volyball.png" class="h-4" alt="">
                         <span>Voliball</span>
                     </a>
                     <a href="#" class="flex items-center space-x-2 px-2 py-1">
@@ -202,7 +202,8 @@
                                                                 @if (!empty($question->options) && $match->questions->count())
                                                                     @foreach ($question->options as $key => $option)
                                                                         @if ($option->status == 'active' && $option->is_hide == '0')
-                                                                            <div class="flex justify-between bg-emerald-600 w-full rounded-sm ">
+                                                                            <div class="flex justify-between bg-emerald-600 w-full rounded-sm cursor-pointer {{ $match->is_active == '1' && $question->is_active == '1' ? 'betInfo' : '' }}"
+                                                                                data-bs-toggle="modal" data-bs-target="#betModal" data-id="{{ $option->id }}">
                                                                                 <span class="text-white font-light p-1">{{ $option->name }}</span>
                                                                                 <span class="bg-emerald-800 text-white font-light p-1 px-4">{{ number_format ($option->bet_rate, 2) }}</span>
                                                                             </div>

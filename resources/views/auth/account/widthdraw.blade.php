@@ -9,9 +9,9 @@
                     <form method="POST" action="{{ route('user.storeWithdraw') }}">
                         @csrf
                         <div class="form-group mb-6">
-                            <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">Method
+                            <label for="forPaymentMethord" class="form-label inline-block mb-2 text-gray-700">Method
                                 <span class="text-red-600">*</span></label>
-                            <select name="method"
+                            <select name="method" id="forPaymentMethord"
                                 class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                 aria-label="Default select example">
                                 <option disabled="" selected=""> Select Method </option>
@@ -21,9 +21,9 @@
                             </select>
                         </div>
                         <div class="form-group mb-6">
-                            <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">Type
+                            <label for="forTypeofwidtddrew" class="form-label inline-block mb-2 text-gray-700">Type
                                 <span class="text-red-600">*</span></label>
-                            <select name="type"
+                            <select name="type" id="forTypeofwidtddrew"
                                 class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                 aria-label="Default select example">
                                 <option disabled="" selected=""> Select Type </option>
@@ -32,25 +32,25 @@
                             </select>
                         </div>
                         <div class="form-group mb-6">
-                            <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">Amount
+                            <label for="forWidthdrawAmount" class="form-label inline-block mb-2 text-gray-700">Amount
                                 <span class="text-red-600">*</span></label>
                             <input name="amount" type="number"
                                 class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                id="exampleInputEmail1" aria-describedby="emailHelp" min="50" max="10000" placeholder="Full Name">
+                                id="forWidthdrawAmount" aria-describedby="emailHelp" min="50" max="10000" placeholder="Full Name">
                         </div>
                         <div class="form-group mb-6">
-                            <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">To <span
+                            <label for="forWidthdrwayTo" class="form-label inline-block mb-2 text-gray-700">To <span
                                     class="text-red-600">*</span></label>
                             <input name="account" type="text"
                                 class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter account number">
+                                id="forWidthdrwayTo" aria-describedby="emailHelp" placeholder="Enter account number">
                         </div>
                         <div class="form-group mb-6">
-                            <label for="exampleInputEmail1" class="form-label inline-block mb-2 text-gray-700">Password
+                            <label for="forWidthdrayPass" class="form-label inline-block mb-2 text-gray-700">Password
                                 <span class="text-red-600">*</span></label>
                             <input name="password" type="password"
                                 class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password">
+                                id="forWidthdrayPass" aria-describedby="emailHelp" placeholder="Password">
                         </div>
 
                         <button type="submit"

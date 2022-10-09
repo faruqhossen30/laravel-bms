@@ -25,7 +25,7 @@ class BettingController extends Controller
     }
 
     public function bet(Request $request){
-
+        // return $request->all();
         $this->validate($request, [
             'option_id' => 'required'
         ]);
@@ -36,20 +36,20 @@ class BettingController extends Controller
         $match = $question->match;
         $totalBet = $option->bets->sum('predict_amount');
         $stake = $request->predict_amount;
-        
+
          if ($user->is_club == NULL && $user->is_admin == NULL) {
              $userCheck = true;
          }else{
              $userCheck = false;
          }
-         
+
          if ( $match->bet_limit == 0 or $match->bet_limit >= $totalBet) {
-           $matchCheck = true;  
+           $matchCheck = true;
          }
          else{
-             $matchCheck = false; 
+             $matchCheck = false;
          }
-         
+
          if ( $question->bet_limit == 0 or $question->bet_limit >= $totalBet) {
              $questionCheck = true;
          }else{
@@ -61,32 +61,32 @@ class BettingController extends Controller
          }else{
              $optionCheck = false;
          }
-         
+
           if ($user->balance > $stake) {
               $balanceCheck = true;
           }else{
               $balanceCheck = false;
           }
-          
+
           // Is Run
           if($match->is_active == '1' && $question->is_active == '1' && $option->status == 'active'){
               $isRun = true;
           }else{
               $isRun = false;
           }
-          
+
           if($option->is_win == '1' || $option->is_loss == '1'){
               $questionWined = false;
           }else{
               $questionWined = true;
           }
-          
-          
+
+
           if($userCheck == true){
-              
+
               if($balanceCheck == true){
                   if ($matchCheck == true && $questionCheck == true && $optionCheck == true && $questionWined == true && $isRun == true) {
-             
+
               // Minus Balance
                 $minusBalance = $user->decrement('balance', $stake);
 
@@ -98,7 +98,7 @@ class BettingController extends Controller
                         $addBalanceToClub = $user->club->increment('balance', $clubCommission);
 
                         $transaction = new Transaction([
-                        'user_id' => $user->club->id,	 	 
+                        'user_id' => $user->club->id,
                         'debit' => 0,
                         'credit' => $clubCommission,
                         'description' => 'Commission',
@@ -110,7 +110,7 @@ class BettingController extends Controller
                     else{
                         $clubCommission = NULL;
                     }
-                
+
                     // Add Balance To Sponsor
                     if (!empty($user->sponsor)) {
                     $sponsorPercentage = $bs->sponsor_commission;
@@ -118,7 +118,7 @@ class BettingController extends Controller
                     $addBalanceToSponsor = $user->sponsor->increment('balance', $sponsorCommission);
 
                     $transaction = new Transaction([
-                        'user_id' => $user->sponsor->id,	 	 
+                        'user_id' => $user->sponsor->id,
                         'debit' => 0,
                         'credit' => $sponsorCommission,
                         'description' => 'Commission',
@@ -149,31 +149,31 @@ class BettingController extends Controller
                     $insart = Bet::create($input);
 
                     // Add Transaction
-                   
+
                     $transaction = new Transaction([
-                        'user_id' => $user->id,	 	 
+                        'user_id' => $user->id,
                         'debit' => $stake,
                         'credit' => 0,
                         'description' => 'Bet Placed',
                         'balance' => $user->balance,
                             ]);
                     $transaction->save();
-            
+
                     Toastr::success('Successfully Bit', 'Success');
                     return redirect()->route('index');
                     }else
                     {
-                        return redirect()->route('index'); 
+                        return redirect()->route('index');
                     }
               }
               else{
             Toastr::error('Insufficient balance', 'error');
-            return redirect()->route('index');  
+            return redirect()->route('index');
               }
           }
           else{
             Toastr::error('Only user can bet.', 'error');
-            return redirect()->route('index'); 
+            return redirect()->route('index');
         }
     }
 }

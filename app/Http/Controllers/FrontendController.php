@@ -79,15 +79,23 @@ class FrontendController extends Controller
 		$date = date("d M Y", strtotime($match_date));
 		$match_time = $option->match->time;
 		$time  = date("g:i A", strtotime($match_time));
-        $info =[
-			'option' => $option,
-            'question' => $option->question,
-			'match' => $option->match,
-			'match_details' => $option->match->team_one .' vs '. $option->match->team_two . ' || '
-			. $option->match->bet_statement . ' || ' .  $date. ',' . $time ,
-		];
+        // $info =[
+		// 	'option' => $option,
+        //     'question' => $option->question,
+		// 	'match' => $option->match,
+		// 	'match_details' => $option->match->team_one .' vs '. $option->match->team_two . ' || '
+		// 	. $option->match->bet_statement . ' || ' .  $date. ',' . $time ,
+		// ];
 
-        return response()->json($info);
+			$match_details = $option->match->team_one .' vs '. $option->match->team_two . ' || '
+			. $option->match->bet_statement . ' || ' .  $date. ',' . $time;
+
+
+            // return $option;
+
+
+        return $data = view('inc.betmodal-body', compact('option', 'match_details'))->render();
+        // return response()->json($info);
     }
 
 }

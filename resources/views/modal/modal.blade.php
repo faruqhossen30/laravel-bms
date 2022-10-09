@@ -20,11 +20,11 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group mb-6">
-                                <label for="exampleInputEmail1"
+                                <label for="forModalUsernameLogin"
                                     class="form-label inline-block mb-2 text-gray-700">Username/Email</label>
                                 <input type="text" name="login"
                                     class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    id="forModalUsernameLogin" aria-describedby="emailHelp"
                                     placeholder="Username or Email">
 
                             </div>
@@ -78,7 +78,4 @@
             </div>
         </div>
     </div>
-
-
-
 </div>

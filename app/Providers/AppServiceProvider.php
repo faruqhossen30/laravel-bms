@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {  
+    {
         Schema::defaultStringLength(550);
         $bs = Basic::find(1);
         $clubs = User::where('is_club',1)->orderBy('balance','DESC')->get();
