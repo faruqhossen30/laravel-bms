@@ -169,7 +169,7 @@
                                         </button>
                                         <img src="{{ asset('static') }}/img/live.gif" class="h-4 m-2" alt="">
                                     </h2>
-                                    <div id="collapse{{ $match->id }}" class="accordion-collapse collapse "
+                                    <div id="collapse{{ $match->id }}" class="accordion-collapse collapse show"
                                         aria-labelledby="headingTwo5">
                                         <div class="accordion-body py-2">
                                             @if (!empty($match->questions) && $match->questions->count())
