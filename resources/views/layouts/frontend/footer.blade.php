@@ -3,7 +3,7 @@
         <div class="bg-yellow-400">
             <h4 class="text-emerald-800 font-bold p-1">Nocice</h4>
         </div>
-        <p class="p-2">{{$bs->footer_notice}}</p>
+        <p class="p-2">{{ $bs->footer_notice }}</p>
     </div>
 </section>
 <footer class="block w-full md:hidden sticky bottom-0 bg-white text-emerald-700 text-sm">
@@ -15,19 +15,26 @@
             </a>
         </div>
         <div class="">
-            <a href="{{ route('home') }}" class="flex flex-col text-center">
+            <a
+            @if (Auth::check())
+                @if (Auth::user()->is_club == '1')
+                href="{{ route('club.profile') }}"
+                @else
+                href="{{ route('home') }}"
+                @endif
+            @else
+            data-bs-toggle="modal" data-bs-target="#loginModal"
+            @endif
+                class="flex flex-col text-center">
                 <i class="fas fa-wallet"></i>
                 <span>Wallet</span>
             </a>
         </div>
         <div class="">
             <a class="flex flex-col text-center"
-            @if (Auth::check())
-            data-bs-toggle="modal" data-bs-target="#depositeModal"
+                @if (Auth::check()) data-bs-toggle="modal" data-bs-target="#depositeModal"
             @else
-            data-bs-toggle="modal" data-bs-target="#loginModal"
-            @endif
-            >
+            data-bs-toggle="modal" data-bs-target="#loginModal" @endif>
                 <span class="">
                     <i class="far fa-money-bill-alt"></i>
                 </span>
@@ -35,7 +42,12 @@
             </a>
         </div>
         <div class="">
-            <a href="#" class="flex flex-col text-center">
+            <a @if (Auth::check()) @if (Auth::user()->is_club == '1')
+                href="{{ route('club.statement') }}"
+                @else
+                href="{{ route('user.statement') }}" @endif
+            @else data-bs-toggle="modal" data-bs-target="#loginModal" @endif
+                class="flex flex-col text-center">
                 <i class="fas fa-th-list"></i>
                 <span>Statement</span>
             </a>
@@ -46,16 +58,24 @@
                 <i class="fas fa-user-circle"></i>
                 <span>Account</span>
             </a>
-            <ul class=" dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none " aria-labelledby="dropdownMenuButton1">
+            <ul class=" dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none "
+                aria-labelledby="dropdownMenuButton1">
                 @auth
-                <li>
-                    <a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
+                    <li>
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();"
-                        class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">Logout
-                    </a>
-                </li>
+                            class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">Logout
+                        </a>
+                    </li>
                 @endauth
+                @guest
+                    <li>
+                        <a data-bs-toggle="modal" data-bs-target="#loginModal"
+                            class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">Login
+                        </a>
+                    </li>
+                @endguest
 
             </ul>
         </div>

@@ -1,4 +1,4 @@
-<div class="hidden md:block md:col-span-3 bg-emerald-700">
+<div class="col-span-12 md:col-span-3 bg-emerald-700">
     <div class="bg-emerald-700">
         <h4 class="text-white font-bold p-1 text-center">Upcomming Match</h4>
     </div>
