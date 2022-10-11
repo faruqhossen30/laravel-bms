@@ -2,7 +2,7 @@
 @section('content')
     <div class="p-2 bg-gray-400">
         <div class="bg-emerald-700 font-bold text-white text-md text-left p-2">
-            Transction Historry
+            Banlance Transfer
         </div>
         @include('inc.club-tabpane')
         <div class="flex flex-col">
@@ -17,16 +17,10 @@
                                         S.N
                                     </th>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                        Credit (In)
+                                        Username
                                     </th>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                        Debit (Out)
-                                    </th>
-                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                        Description
-                                    </th>
-                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                        Balance
+                                        Amount
                                     </th>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                         Time
@@ -35,33 +29,27 @@
 
                             </thead>
                             <tbody>
-                                @if (!empty($transactions) && $transactions->count())
-                                    @foreach ($transactions as $key => $transaction)
+                                @if (!empty($transfers) && $transfers->count())
+                                    @foreach ($transfers as $key => $transfer)
                                         <tr class="bg-white border-b">
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                {{ $transactions->currentpage() * $transactions->perpage() - $transactions->perpage() + ++$key }}
+                                                {{ $transfers->currentpage() * $transfers->perpage() - $transfers->perpage() + ++$key }}
                                             </td>
                                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                {{ $bs->currency_symbol }} {{ number_format($transaction->credit,2) }}
+                                                {{ $transfer->to_username }}
                                             </td>
                                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                {{ $bs->currency_symbol }} {{ number_format($transaction->debit,2) }}
+                                                {{ $bs->currency_symbol }} {{ number_format($transfer->amount, 2) }}
                                             </td>
                                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                {{ $transaction->description }}
-                                            </td>
-                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                {{ $bs->currency_symbol }} {{ number_format($transaction->balance,2) }}
-                                            </td>
-                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                {{ \Carbon\Carbon::parse($transaction->created_at)->format('d M Y h:i:s A')}}
+                                                {{ \Carbon\Carbon::parse($transfer->created_at)->format('d M Y h:i:s A') }}
                                             </td>
 
                                         </tr>
                                     @endforeach
                                 @else
                                     <tr>
-                                        <th colspan="9">Transaction not found!</th>
+                                        <th colspan="4">Balance Transfer not found!</th>
                                     </tr>
                                 @endif
                             </tbody>
@@ -71,7 +59,7 @@
             </div>
         </div>
         <div class="p-2">
-            {{ $transactions->links('pagination::tailwind') }}
+            {{ $transfers->links('pagination::tailwind') }}
         </div>
     </div>
 @endsection

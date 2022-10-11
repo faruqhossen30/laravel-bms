@@ -28,17 +28,17 @@ class ProfileController extends Controller
     {
         $auth = auth()->user()->id;
         $club = User::findOrFail($auth);
-        return view('club.profile',compact('club')); 
+        return view('club.profile',compact('club'));
     }
 
     public function changeProfile(Request $request)
-    {   
+    {
         $request->validate([
         'club_owner' => ['required'],
         'club_mobile' => ['required'],
         'club_address' => ['required']
     ]);
-        
+
         $user = User::find(auth()->user()->id);
         $user->club_owner =  $request->club_owner;
         $user->club_mobile = $request->club_mobile;
@@ -62,13 +62,29 @@ class ProfileController extends Controller
     }
 
     public function statements()
-    {   
+    {
         $auth = auth()->user()->id;
+        $sec = null;
+        if (isset($_GET['sec'])) {
+            $sec = $_GET['sec'];
+        }
+
+        if($sec &&  $sec == 'withdraw'){
+            $withdraws =  Withdraw::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
+            return view('club.statement.withdraw',compact('withdraws'));
+        }
+        if($sec &&  $sec == 'transfer'){
+            $transfers = BalanceTransfer::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
+            return view('club.statement.balance-transfer',compact('transfers'));
+        }
+
+        if($sec &&  $sec == 'transaction'){
+            $transactions = Transaction::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
+            return view('club.statement.transaction',compact('transactions'));
+        }
+
         $bets = Bet::orderBy('created_at', 'DESC')->where('club_id', $auth)->paginate(10);
-        $withdraws =  Withdraw::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
-        $transfers = BalanceTransfer::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
-        $transactions = Transaction::orderBy('created_at', 'DESC')->where('user_id', $auth)->paginate(10);
-        return view('club.statement.index',compact('bets','withdraws','transfers','transactions')); 
+        return view('club.statement.index',compact('bets'));
     }
 
 }

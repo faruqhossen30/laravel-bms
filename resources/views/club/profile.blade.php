@@ -1,132 +1,67 @@
 @extends('layouts.frontend.master')
 
 @section('title')
-Dashboard | {{ $bs->site_name }}
+    Dashboard | {{ $bs->site_name }}
 @endsection
 
 @section('content')
+    <!-- Main Section start -->
+    <section class="bg-gray-200">
+        <div class="m-auto shadow-lg p-4">
+            <ul class="bg-white nav nav-tabs flex flex-row md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4 font-bold "
+                id="tabs-tab" role="tablist">
 
-<section id="dashboard">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-xl-12">
-                @include('club.sidebar')
-            </div>
-
-            <div class="col-md-12 col-xl-12">
-                <div class="tab-content">
-
-                <div class="tab-pane fade show active" id="ClubProfile">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title mb-0">Club Profile</h5>
-                        </div>
-                        <div class="card-body p-2">
-
-                            <div class="row dashboard-statistics">
-                                <div class="col-xl-6 col-md-6">
-                                    <div class="card text-light bg-secondary rounded-2">
-                                        <div class="card-body p-2">
-                                            <div class="float-right">
-                                                <i class="fas fa-money-check-alt ml-3"></i>
-                                            </div>
-                                            <h5 class="font-size-20 mt-0 pt-1">{{ $bs->currency_symbol }} {{ number_format(Auth::user()->balance, 2) }}</h5>
-                                            <p class="mb-0">Balance</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-md-6">
-                                    <div class="card text-light bg-secondary rounded-2">
-                                        <div class="card-body p-2">
-                                            <div class="float-right">
-                                                <i class="fas fa-users ml-3"></i>
-                                            </div>
-                                            <h5 class="font-size-20 mt-0 pt-1"> {{ Auth::user()->clubUsers->count() }} </h5>
-                                            <p class="mb-0">Total Referral</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!-- end row -->
-
-                            <div class="row">
-                                <div class="col-6 pr-0">
-                                    <div class="UsrerInfo">
-                                        <span> Club Name</span>
-                                    </div>
-                                </div>
-                                <div class="col-6 pl-0">
-                                    <div class="UsrerInfoHere">
-                                        <span> {{ Auth::user()->name }} </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 pr-0">
-                                    <div class="UsrerInfo">
-                                        <span> Username</span>
-                                    </div>
-                                </div>
-                                <div class="col-6 pl-0">
-                                    <div class="UsrerInfoHere">
-                                        <span> {{ Auth::user()->username }} </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 pr-0">
-                                    <div class="UsrerInfo">
-                                        <span> Mobile</span>
-                                    </div>
-                                </div>
-                                <div class="col-6 pl-0">
-                                    <div class="UsrerInfoHere">
-                                        <span> {{ Auth::user()->mobile }} </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 pr-0">
-                                    <div class="UsrerInfo">
-                                        <span> Email Address</span>
-                                    </div>
-                                </div>
-                                <div class="col-6 pl-0">
-                                    <div class="UsrerInfoHere">
-                                        <span> {{ Auth::user()->email }} </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-6 pr-0">
-                                    <div class="UsrerInfo">
-                                        <span> Club Owner</span>
-                                    </div>
-                                </div>
-                                <div class="col-6 pl-0">
-                                    <div class="UsrerInfoHere">
-                                        <span> {{ Auth::user()->club_owner }} </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    </div>
-
-                @include('club.password')
-                @include('club.balanceTransfer')
-                @include('club.withdraw')
-                @include('club.setting')
-                @include('club.password')
+                <li class="nav-item" role="presentation">
+                    <a href="#tabs-profile"
+                        class="text-white nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent active"
+                        id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
+                        aria-controls="tabs-profile" aria-selected="false">Profile</a>
+                </li>
+                @if (option('balance_transfer') == 'on')
+                    <li class="nav-item" role="presentation">
+                        <a href="#tabs-transferbalance"
+                            class=" nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent"
+                            id="tabs-transferbalance-tab" data-bs-toggle="pill" data-bs-target="#tabs-transferbalance"
+                            role="tab" aria-controls="tabs-transferbalance" aria-selected="false">Transfer Balance</a>
+                    </li>
+                @endif
+                @if (option('withdraw_system') == 'on')
+                    <li class="nav-item" role="presentation">
+                        <a href="#tabs-widthdraw"
+                            class=" nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent"
+                            id="tabs-widthdraw-tab" data-bs-toggle="pill" data-bs-target="#tabs-widthdraw" role="tab"
+                            aria-controls="tabs-widthdraw" aria-selected="false">Withdraw</a>
+                    </li>
+                @endif
+                <li class="nav-item" role="presentation">
+                    <a href="#tabs-clubsetting"
+                        class=" nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent"
+                        id="tabs-clubsetting-tab" data-bs-toggle="pill" data-bs-target="#tabs-clubsetting" role="tab"
+                        aria-controls="tabs-clubsetting" aria-selected="false">Club Setting</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a href="#tabs-changepassword"
+                        class=" nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent"
+                        id="tabs-changepassword-tab" data-bs-toggle="pill" data-bs-target="#tabs-changepassword"
+                        role="tab" aria-controls="tabs-changepassword" aria-selected="false">changepassword</a>
+                </li>
+            </ul>
+            {{-- Tab content statart --}}
+            @include('club.profile-tab')
+            {{-- @if (option('balance_transfer') == 'on') --}}
+            @include('club.banlancetransfer-tab')
+            {{-- @endif --}}
+            @if (option('withdraw_system') == 'on')
+                @include('club.widthdraw-tab')
+            @endif
+            @include('club.clubsetting-tab')
+            @include('club.changepassword-tab')
 
 
-                </div>
-            </div>
+
+
         </div>
-
-    </div>
-</section>
+        </div>
+    </section>
+    <!-- Main Section end -->
 @endsection
