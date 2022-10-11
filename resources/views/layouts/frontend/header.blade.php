@@ -9,7 +9,7 @@
             <div class="hidden md:block text-white text-sm font-bold space-x-3">
                 <a class="nav-link" href="{{ route('club.profile') }}"> My Wallet </a>
                 <a class="nav-link" href="{{ route('club.statement') }}"> My Statement </a>
-                {{-- <a class="nav-link" href="#" data-toggle="modal" data-target="#ReferralsModal"> My Referrals </a> --}}
+                <a class="nav-link" href="{{route('club.referral')}}"> My Referrals </a>
                 {{-- <a class="nav-link" href="#" data-toggle="modal" data-target="#complainModal"> Complain Box </a> --}}
                 <a class="nav-link" href="{{ route('user.alart') }}"> Alart <span class="badge badge-dark alart-count"></span> </a>
             </div>

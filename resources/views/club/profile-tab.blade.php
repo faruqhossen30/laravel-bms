@@ -16,14 +16,16 @@
                             <span class="text-3xl p-4 text-emerald-700"><i class="fas fa-money-check-alt"></i></span>
                         </div>
                     </div>
-                    <div class="col-span-12 md:col-span-6 bg-green-100 flex justify-between place-items-center">
-                        <div class="p-3 text-center">
-                            <span class="font-bold">{{ Auth::user()->clubUsers->count() }}</span> <br>
-                            <span class="text-orange-700 ">Total Referral</span>
-                        </div>
-                        <div>
-                            <span class="text-3xl p-4 text-emerald-700"><i class="fas fa-users"></i></span>
-                        </div>
+                    <div class="col-span-12 md:col-span-6 bg-green-100 ">
+                        <a href="{{route('club.referral')}}" class="flex justify-between place-items-center">
+                            <div class="p-3 text-center">
+                                <span class="font-bold">{{ Auth::user()->clubUsers->count() }}</span> <br>
+                                <span class="text-orange-700 ">Total Referral</span>
+                            </div>
+                            <div>
+                                <span class="text-3xl p-4 text-emerald-700"><i class="fas fa-users"></i></span>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="py-3">

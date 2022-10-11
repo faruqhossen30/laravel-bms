@@ -64,6 +64,7 @@ Route::prefix('auth')->middleware(['auth'])->group(function () {
 
 Route::prefix('club')->middleware(['club'])->group(function () {
     Route::get('/', 'Club\ProfileController@index')->name('club.profile');
+    Route::get('/referral', 'Club\ProfileController@referral')->name('club.referral');
     Route::get('/statement', 'Club\ProfileController@statements')->name('club.statement');
     Route::post('/balance-transfer', 'Club\BalanceTransferController@balanceTransfer')->name('club.balanceTransfer');
     Route::post('/withdraw', 'Club\WithdrawController@withdraw')->name('club.storeWithdraw');

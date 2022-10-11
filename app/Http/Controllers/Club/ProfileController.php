@@ -87,4 +87,11 @@ class ProfileController extends Controller
         return view('club.statement.index',compact('bets'));
     }
 
+    public function referral()
+    {
+        $auth = auth()->user()->id;
+        return view('club.referral');
+
+    }
+
 }
