@@ -15,9 +15,10 @@
                     <div class="accordion-item bg-white border border-gray-200">
                         <h2 class="accordion-header mb-0" id="headingTwo5">
                             <button
-                                class=" accordion-button collapsed relative flex items-center w-full py-2 px-5 text-base text-gray-700 text-left bg-green-100 border-0 rounded-none transition focus:outline-none"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#upcommingCollapse{{$match->id}}"
-                                aria-expanded="false" aria-controls="upcommingCollapse{{$match->id}}" style="border-radius: 0;">
+                                class="match-open accordion-button collapsed relative flex items-center w-full py-2 px-5 text-base text-gray-700 text-left bg-green-100 border-0 rounded-none transition focus:outline-none"
+                                type="button" data-bs-toggle="collapse"
+                                data-bs-target="#upcommingCollapse{{ $match->id }}" aria-expanded="false"
+                                aria-controls="upcommingCollapse{{ $match->id }}" style="border-radius: 0;" data-match="{{ $match->id }}">
                                 <div class="shrink-0">
                                     @if ($match->match_type == 'FootBall')
                                         <img class="h-12 w-12"
@@ -51,8 +52,8 @@
                                         <img class="h-12 w-12"
                                             src="{{ asset('static/images/game_icon/hand-ball.png') }}" alt="Hand Ball">
                                     @elseif($match->match_type == 'Base Ball')
-                                        <img class="h-12 w-12" src="{{ asset('static/images/game_icon/baseball.png') }}"
-                                            alt="Base Ball">
+                                        <img class="h-12 w-12"
+                                            src="{{ asset('static/images/game_icon/baseball.png') }}" alt="Base Ball">
                                     @elseif($match->match_type == 'Rugby')
                                         <img class="h-12 w-12"
                                             src="{{ asset('static/images/game_icon/rugby-ball.png') }}" alt="Rugby">
@@ -112,23 +113,9 @@
                                 </div>
                             </button>
                         </h2>
-                        <div id="upcommingCollapse{{$match->id}}" class="accordion-collapse collapse" aria-labelledby="headingTwo5">
-                            <div class="accordion-body py-2">
-                                {{-- <div>
-                                    <div class="text-white bg-gray-200 border">
-                                        <h4 class="text-gray-600 font-bold p-1">Who win the match</h4>
-                                    </div>
-                                    <div class="flex justify-between space-x-1 p-2 text-sm">
-                                        <div class="flex justify-between bg-emerald-600 w-full rounded-sm ">
-                                            <span class="text-white font-bold p-1">Bangladesh</span>
-                                            <span class="bg-emerald-800 text-white font-bold p-1 px-4">2.50</span>
-                                        </div>
-                                        <div class="flex justify-between bg-emerald-600 w-full rounded-sm">
-                                            <span class="text-white font-bold p-1">Srilanka</span>
-                                            <span class="bg-emerald-800 text-white font-bold p-1 px-4">1.50</span>
-                                        </div>
-                                    </div>
-                                </div> --}}
+                        <div id="upcommingCollapse{{ $match->id }}" class="accordion-collapse collapse"
+                            aria-labelledby="headingTwo5">
+                            <div class="accordion-body py-2" id="upconnitMatch{{$match->id}}">
 
                             </div>
                         </div>

@@ -13,12 +13,12 @@ class FrontendController extends Controller
 
 	public function index()
 	{
-		$live_matchs = Match::orderBy('date','ASC')->orderBy('time','ASC')
+		$live_matchs = Match::with('questions')->orderBy('date','ASC')->orderBy('time','ASC')
 		->where('status','live')->where('is_hide',0)->get();
-		$upcoming_matchs = Match::orderBy('date','ASC')->orderBy('time','ASC')
+		$upcoming_matchs = Match::with('questions')->orderBy('date','ASC')->orderBy('time','ASC')
 		->where('status','upcoming')->where('is_hide',0)->get();
 		// return view('index', compact('live_matchs', 'upcoming_matchs'));
-        // return $live_matchs;
+        // return $upcoming_matchs;
         return view('homepage', compact('live_matchs', 'upcoming_matchs'));
 	}
 
@@ -44,6 +44,12 @@ class FrontendController extends Controller
 	}
 
 	public function show_match_options($id)
+	{
+		$match = Match::with('questions')->findOrFail($id);
+        // return $match;
+        return $data = view('inc.upcomming-match', compact('match'));
+    }
+	public function show_match_options_old($id)
 	{
 		$match = Match::findOrFail($id);
 		$html = '';

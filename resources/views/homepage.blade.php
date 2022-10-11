@@ -185,8 +185,14 @@
                                                                     @foreach ($question->options as $key => $option)
                                                                         @if ($option->status == 'active' && $option->is_hide == '0')
                                                                             <div class="flex justify-between bg-emerald-600 w-full rounded-sm cursor-pointer {{ $match->is_active == '1' && $question->is_active == '1' ? 'betInfo' : '' }}"
+                                                                                @auth
                                                                                 data-bs-toggle="modal"
                                                                                 data-bs-target="#betModal"
+                                                                                @endauth
+                                                                                @guest
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#loginModal"
+                                                                                @endguest
                                                                                 data-id="{{ $option->id }}">
                                                                                 <span
                                                                                     class="text-white font-light p-1">{{ $option->name }}</span>
