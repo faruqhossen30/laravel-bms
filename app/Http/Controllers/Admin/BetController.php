@@ -9,6 +9,7 @@ use App\Models\Bet;
 use App\Models\Transaction;
 use App\Models\Alart;
 use App\Models\Basic;
+use App\Models\Country;
 
 class BetController extends Controller
 {
@@ -27,12 +28,13 @@ class BetController extends Controller
      */
     public function index()
     {
-        return view('admin.bet.index');
+        $countries = Country::get();
+        return view('admin.bet.index', compact('countries'));
     }
 
     //Betting Database
     public function betting_index(Request $request)
-    {   
+    {
         //User Find
         $user_id = null;
         if ($request->user){
@@ -58,7 +60,7 @@ class BetController extends Controller
                 $betting = Bet::findOrFail($bet);
                 $percentage = $request->percentage;
                 $total = $betting->predict_amount;
-                $amount = ($percentage / 100) * $total; 
+                $amount = ($percentage / 100) * $total;
 
                 if ($betting->status != 'refund') {
                     $betting->update(['status' => 'refund']);
@@ -70,7 +72,7 @@ class BetController extends Controller
 
                     // Add Transaction
                     $transaction = new Transaction([
-                        'user_id' => $user,	 	 
+                        'user_id' => $user,
                         'debit' => 0,
                         'credit' => $amount,
                         'description' => 'Refund',

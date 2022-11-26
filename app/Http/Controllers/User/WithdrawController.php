@@ -27,7 +27,7 @@ class WithdrawController extends Controller
         $currecy = Basic::findOrFail(1)->currency_code;
         $this->validate($request, [
             'method' => 'required',
-            'amount'=>'required|numeric|min:500|max:25000',
+            'amount'=>'required|numeric|min:500|max:50000',
             'type' => 'required',
             'account' => 'required',
             'password' => ['required', new MatchOldPassword],

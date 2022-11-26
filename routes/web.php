@@ -35,6 +35,7 @@ Route::get('/view-clear', function() {
  });
 
 Route::get('/', 'FrontendController@index')->name('index');
+Route::get('/test', 'TestController@index')->name('test');
 Route::get('/match/{sport}', 'FrontendController@sport')->name('sport');
 Route::get('/option/{id}', 'FrontendController@show_option')->name('show.option');
 Route::get('/match-open/{id}', 'FrontendController@show_match_options')->name('show.match_options');
