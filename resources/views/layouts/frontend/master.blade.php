@@ -11,7 +11,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{{ asset('static/css/toastr.min.css') }}">
         {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" /> --}}
+    <link rel="stylesheet" href="{{asset('static/css/index.min.css')}}">
 
     <style>
         .accordion-button:after {
@@ -39,7 +40,8 @@
     <script src="{{ asset('static/js/jquery.validate.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('static/js/toastr.min.js') }}"></script>
     <script src="{{ asset('static/js/customjs-new.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> --}}
+    <script src="{{ asset('static/js/index.min.js') }}"></script>
     @stack('script')
 </body>
 
